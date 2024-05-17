@@ -11,38 +11,20 @@ import static com.example.XMLElementTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import generated.psi.*;
 
-public class XMLAttributeImpl extends ASTWrapperPsiElement implements XMLAttribute {
+public class XMLElementNameImpl extends ASTWrapperPsiElement implements XMLElementName {
 
-  public XMLAttributeImpl(@NotNull ASTNode node) {
+  public XMLElementNameImpl(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull XMLVisitor visitor) {
-    visitor.visitAttribute(this);
+    visitor.visitElementName(this);
   }
 
   @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof XMLVisitor) accept((XMLVisitor)visitor);
     else super.accept(visitor);
-  }
-
-  @Override
-  @NotNull
-  public XMLAttrValue getAttrValue() {
-    return findNotNullChildByClass(XMLAttrValue.class);
-  }
-
-  @Override
-  @NotNull
-  public XMLElementName getElementName() {
-    return findNotNullChildByClass(XMLElementName.class);
-  }
-
-  @Override
-  @NotNull
-  public XMLEquals getEquals() {
-    return findNotNullChildByClass(XMLEquals.class);
   }
 
 }

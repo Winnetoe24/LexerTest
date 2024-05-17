@@ -5,15 +5,6 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface XMLAttribute extends PsiElement {
-
-  @NotNull
-  XMLAttrValue getAttrValue();
-
-  @NotNull
-  XMLElementName getElementName();
-
-  @NotNull
-  XMLEquals getEquals();
+public interface XMLElementName extends PsiElement {
 
 }

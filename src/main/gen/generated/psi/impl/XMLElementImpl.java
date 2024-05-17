@@ -29,8 +29,8 @@ public class XMLElementImpl extends ASTWrapperPsiElement implements XMLElement {
 
   @Override
   @NotNull
-  public List<XMLName> getNameList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, XMLName.class);
+  public List<XMLElementName> getElementNameList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, XMLElementName.class);
   }
 
   @Override

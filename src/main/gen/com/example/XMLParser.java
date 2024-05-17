@@ -66,6 +66,22 @@ public class XMLParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
+  // /
+  public static boolean ELEMENT_NAME(PsiBuilder b, int l) {
+    Marker m = enter_section_(b);
+    exit_section_(b, m, ELEMENT_NAME, true);
+    return true;
+  }
+
+  /* ********************************************************** */
+  // /
+  public static boolean ENCLOSED_TEXT(PsiBuilder b, int l) {
+    Marker m = enter_section_(b);
+    exit_section_(b, m, ENCLOSED_TEXT, true);
+    return true;
+  }
+
+  /* ********************************************************** */
   // "="
   public static boolean EQUALS(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "EQUALS")) return false;
@@ -74,14 +90,6 @@ public class XMLParser implements PsiParser, LightPsiParser {
     r = consumeToken(b, "=");
     exit_section_(b, l, m, r, false, null);
     return r;
-  }
-
-  /* ********************************************************** */
-  // /
-  public static boolean NAME(PsiBuilder b, int l) {
-    Marker m = enter_section_(b);
-    exit_section_(b, m, NAME, true);
-    return true;
   }
 
   /* ********************************************************** */
@@ -129,14 +137,6 @@ public class XMLParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // /
-  public static boolean TEXT(PsiBuilder b, int l) {
-    Marker m = enter_section_(b);
-    exit_section_(b, m, TEXT, true);
-    return true;
-  }
-
-  /* ********************************************************** */
   // "?>"
   public static boolean XML_DECL_END(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "XML_DECL_END")) return false;
@@ -159,12 +159,12 @@ public class XMLParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // NAME EQUALS ATTR_VALUE
+  // ELEMENT_NAME EQUALS ATTR_VALUE
   public static boolean attribute(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "attribute")) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, ATTRIBUTE, "<attribute>");
-    r = NAME(b, l + 1);
+    r = ELEMENT_NAME(b, l + 1);
     r = r && EQUALS(b, l + 1);
     r = r && ATTR_VALUE(b, l + 1);
     exit_section_(b, l, m, r, false, null);
@@ -223,8 +223,8 @@ public class XMLParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // TAG_OPEN NAME attribute_list TAG_CLOSE element_content TAG_OPEN_CLOSE NAME TAG_CLOSE
-  //           | TAG_OPEN NAME attribute_list TAG_SELF_CLOSE
+  // TAG_OPEN ELEMENT_NAME attribute_list TAG_CLOSE element_content TAG_OPEN_CLOSE ELEMENT_NAME TAG_CLOSE
+  //           | TAG_OPEN ELEMENT_NAME attribute_list TAG_SELF_CLOSE
   public static boolean element(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "element")) return false;
     boolean r;
@@ -235,30 +235,30 @@ public class XMLParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // TAG_OPEN NAME attribute_list TAG_CLOSE element_content TAG_OPEN_CLOSE NAME TAG_CLOSE
+  // TAG_OPEN ELEMENT_NAME attribute_list TAG_CLOSE element_content TAG_OPEN_CLOSE ELEMENT_NAME TAG_CLOSE
   private static boolean element_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "element_0")) return false;
     boolean r;
     Marker m = enter_section_(b);
     r = TAG_OPEN(b, l + 1);
-    r = r && NAME(b, l + 1);
+    r = r && ELEMENT_NAME(b, l + 1);
     r = r && attribute_list(b, l + 1);
     r = r && TAG_CLOSE(b, l + 1);
     r = r && element_content(b, l + 1);
     r = r && TAG_OPEN_CLOSE(b, l + 1);
-    r = r && NAME(b, l + 1);
+    r = r && ELEMENT_NAME(b, l + 1);
     r = r && TAG_CLOSE(b, l + 1);
     exit_section_(b, m, null, r);
     return r;
   }
 
-  // TAG_OPEN NAME attribute_list TAG_SELF_CLOSE
+  // TAG_OPEN ELEMENT_NAME attribute_list TAG_SELF_CLOSE
   private static boolean element_1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "element_1")) return false;
     boolean r;
     Marker m = enter_section_(b);
     r = TAG_OPEN(b, l + 1);
-    r = r && NAME(b, l + 1);
+    r = r && ELEMENT_NAME(b, l + 1);
     r = r && attribute_list(b, l + 1);
     r = r && TAG_SELF_CLOSE(b, l + 1);
     exit_section_(b, m, null, r);
@@ -267,14 +267,14 @@ public class XMLParser implements PsiParser, LightPsiParser {
 
   /* ********************************************************** */
   // element_list
-  //                   | text
+  //                   | enclosed_text
   //                   | /* empty */
   public static boolean element_content(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "element_content")) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, ELEMENT_CONTENT, "<element content>");
     r = element_list(b, l + 1);
-    if (!r) r = text(b, l + 1);
+    if (!r) r = enclosed_text(b, l + 1);
     if (!r) r = consumeToken(b, ELEMENT_CONTENT_2_0);
     exit_section_(b, l, m, r, false, null);
     return r;
@@ -305,20 +305,20 @@ public class XMLParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // xml_document
-  static boolean root(PsiBuilder b, int l) {
-    return xml_document(b, l + 1);
+  // ENCLOSED_TEXT
+  public static boolean enclosed_text(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "enclosed_text")) return false;
+    boolean r;
+    Marker m = enter_section_(b, l, _NONE_, ENCLOSED_TEXT, "<enclosed text>");
+    r = ENCLOSED_TEXT(b, l + 1);
+    exit_section_(b, l, m, r, false, null);
+    return r;
   }
 
   /* ********************************************************** */
-  // TEXT
-  public static boolean text(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "text")) return false;
-    boolean r;
-    Marker m = enter_section_(b, l, _NONE_, TEXT, "<text>");
-    r = TEXT(b, l + 1);
-    exit_section_(b, l, m, r, false, null);
-    return r;
+  // xml_document
+  static boolean root(PsiBuilder b, int l) {
+    return xml_document(b, l + 1);
   }
 
   /* ********************************************************** */

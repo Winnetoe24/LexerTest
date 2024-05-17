@@ -8,7 +8,7 @@ import com.intellij.psi.PsiElement;
 public interface XMLElement extends PsiElement {
 
   @NotNull
-  List<XMLName> getNameList();
+  List<XMLElementName> getElementNameList();
 
   @NotNull
   List<XMLTagClose> getTagCloseList();

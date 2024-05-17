@@ -11,6 +11,6 @@ public interface XMLElementContent extends PsiElement {
   XMLElementList getElementList();
 
   @Nullable
-  XMLText getText();
+  XMLEnclosedText getEnclosedText();
 
 }

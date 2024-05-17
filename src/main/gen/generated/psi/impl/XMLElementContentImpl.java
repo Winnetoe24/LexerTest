@@ -35,8 +35,8 @@ public class XMLElementContentImpl extends ASTWrapperPsiElement implements XMLEl
 
   @Override
   @Nullable
-  public XMLText getText() {
-    return findChildByClass(XMLText.class);
+  public XMLEnclosedText getEnclosedText() {
+    return findChildByClass(XMLEnclosedText.class);
   }
 
 }

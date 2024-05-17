@@ -27,4 +27,10 @@ public class XMLTextImpl extends ASTWrapperPsiElement implements XMLText {
     else super.accept(visitor);
   }
 
+  @Override
+  @NotNull
+  public XMLEnclosedText getEnclosedText() {
+    return findNotNullChildByClass(XMLEnclosedText.class);
+  }
+
 }

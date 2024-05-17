@@ -7,4 +7,7 @@ import com.intellij.psi.PsiElement;
 
 public interface XMLText extends PsiElement {
 
+  @NotNull
+  XMLEnclosedText getEnclosedText();
+
 }

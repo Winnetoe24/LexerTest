@@ -5,8 +5,8 @@
   psiClassPrefix="XML"
   psiImplClassSuffix="Impl"
   elementTypeHolderClass="com.example.XMLElementTypes"
-  elementTypeClass="com.example.XMLElementType"
-  tokenTypeClass="com.example.XMLTokenType"
+  elementTypeClass="de.brand.lexertest.XMLElementType"
+  tokenTypeClass="de.brand.lexertest.XMLTokenType"
 }
 
 root ::= xml_document
@@ -21,9 +21,9 @@ TAG_SELF_CLOSE ::= "/>"
 EQUALS ::= "="
 COMMENT_START ::= "<!--"
 COMMENT_END ::= "-->"
-NAME ::= /[:_a-zA-Z][_a-zA-Z0-9.-]*/
+ELEMENT_NAME ::= /[:_a-zA-Z][_a-zA-Z0-9.-]*/
 ATTR_VALUE ::= /"[^"]*"/
-TEXT ::= /[^<&]+/
+ENCLOSED_TEXT ::= /[^<&]+/
 
 // Grammar rules
 xml_document ::= declaration_opt element
@@ -31,11 +31,11 @@ xml_document ::= declaration_opt element
 declaration_opt ::= XML_DECL_START attribute_list XML_DECL_END
                   | /* empty */
 
-element ::= TAG_OPEN NAME attribute_list TAG_CLOSE element_content TAG_OPEN_CLOSE NAME TAG_CLOSE
-          | TAG_OPEN NAME attribute_list TAG_SELF_CLOSE
+element ::= TAG_OPEN ELEMENT_NAME attribute_list TAG_CLOSE element_content TAG_OPEN_CLOSE ELEMENT_NAME TAG_CLOSE
+          | TAG_OPEN ELEMENT_NAME attribute_list TAG_SELF_CLOSE
 
 element_content ::= element_list
-                  | text
+                  | enclosed_text
                   | /* empty */
 
 element_list ::= element
@@ -45,6 +45,6 @@ attribute_list ::= attribute
                  | attribute_list attribute
                  | /* empty */
 
-attribute ::= NAME EQUALS ATTR_VALUE
+attribute ::= ELEMENT_NAME EQUALS ATTR_VALUE
 
-text ::= TEXT
+enclosed_text ::= ENCLOSED_TEXT

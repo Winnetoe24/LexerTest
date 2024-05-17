@@ -19,13 +19,13 @@ public interface XMLElementTypes {
   IElementType ELEMENT = new XMLElementType("ELEMENT");
   IElementType ELEMENT_CONTENT = new XMLElementType("ELEMENT_CONTENT");
   IElementType ELEMENT_LIST = new XMLElementType("ELEMENT_LIST");
+  IElementType ELEMENT_NAME = new XMLElementType("ELEMENT_NAME");
+  IElementType ENCLOSED_TEXT = new XMLElementType("ENCLOSED_TEXT");
   IElementType EQUALS = new XMLElementType("EQUALS");
-  IElementType NAME = new XMLElementType("NAME");
   IElementType TAG_CLOSE = new XMLElementType("TAG_CLOSE");
   IElementType TAG_OPEN = new XMLElementType("TAG_OPEN");
   IElementType TAG_OPEN_CLOSE = new XMLElementType("TAG_OPEN_CLOSE");
   IElementType TAG_SELF_CLOSE = new XMLElementType("TAG_SELF_CLOSE");
-  IElementType TEXT = new XMLElementType("TEXT");
   IElementType XML_DECL_END = new XMLElementType("XML_DECL_END");
   IElementType XML_DECL_START = new XMLElementType("XML_DECL_START");
   IElementType XML_DOCUMENT = new XMLElementType("XML_DOCUMENT");
@@ -64,11 +64,14 @@ public interface XMLElementTypes {
       else if (type == ELEMENT_LIST) {
         return new XMLElementListImpl(node);
       }
+      else if (type == ELEMENT_NAME) {
+        return new XMLElementNameImpl(node);
+      }
+      else if (type == ENCLOSED_TEXT) {
+        return new XMLEnclosedTextImpl(node);
+      }
       else if (type == EQUALS) {
         return new XMLEqualsImpl(node);
-      }
-      else if (type == NAME) {
-        return new XMLNameImpl(node);
       }
       else if (type == TAG_CLOSE) {
         return new XMLTagCloseImpl(node);
@@ -81,9 +84,6 @@ public interface XMLElementTypes {
       }
       else if (type == TAG_SELF_CLOSE) {
         return new XMLTagSelfCloseImpl(node);
-      }
-      else if (type == TEXT) {
-        return new XMLTextImpl(node);
       }
       else if (type == XML_DECL_END) {
         return new XMLXmlDeclEndImpl(node);
