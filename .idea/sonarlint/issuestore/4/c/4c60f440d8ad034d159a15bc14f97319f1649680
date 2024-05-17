@@ -1,0 +1,12 @@
+
+™	java:S135\"YReduce the total number of break and continue statements in this loop to use at most one.(˜ïˆÿÿÿÿÿJ$59ca978e-a71c-445f-85e0-f7d25dd061c5
+z
+java:S3516Z"9Refactor this method to not always return the same value.(úöŸ¼ÿÿÿÿÿJ$429ed1ae-b8e4-4434-b62d-1913197090a9
+‰	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÈÕÇéJ$8571324d-00eb-45b5-81cc-87fde6af05d5
+	java:S100""NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°Á¬ÕüÿÿÿÿJ$8606a25d-1560-49ef-9210-48a4e6c2c92c
+i
+java:S1172""(Remove this unused method parameter "t".(°Á¬ÕüÿÿÿÿJ$d26de305-2204-45ac-9243-d1ed5995ac28
+	java:S100("NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–ÄøúÿÿÿÿJ$8395e52c-d56f-46a8-9bb7-2674421c7830
+‰	java:S100?"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ü¬ú•J$8d39b321-44ad-4a38-817c-a6c96dfb1334
+	java:S100K"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œâ€÷ûÿÿÿÿJ$015ea967-7b41-489a-943b-1274c3a65762
+	java:S100R"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õò“ùÿÿÿÿJ$f6d82d29-d5be-4ade-8bed-cb9ec514c950

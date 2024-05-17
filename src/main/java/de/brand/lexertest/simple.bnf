@@ -1,20 +1,50 @@
+// XML.bnf
 {
-  parserClass="org.intellij.sdk.language.parser.SimpleParser"
-
+  parserClass="com.example.XMLParser"
   extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
-
-  psiClassPrefix="Simple"
+  psiClassPrefix="XML"
   psiImplClassSuffix="Impl"
-  psiPackage="org.intellij.sdk.language.psi"
-  psiImplPackage="org.intellij.sdk.language.psi.impl"
-
-  elementTypeHolderClass="org.intellij.sdk.language.psi.SimpleTypes"
-  elementTypeClass="org.intellij.sdk.language.psi.SimpleElementType"
-  tokenTypeClass="org.intellij.sdk.language.psi.SimpleTokenType"
+  elementTypeHolderClass="com.example.XMLElementTypes"
+  elementTypeClass="com.example.XMLElementType"
+  tokenTypeClass="com.example.XMLTokenType"
 }
 
-simpleFile ::= item_*
+root ::= xml_document
 
-private item_ ::= (property|COMMENT|CRLF)
+// Tokens
+XML_DECL_START ::= "<?xml"
+XML_DECL_END ::= "?>"
+TAG_OPEN ::= "<"
+TAG_CLOSE ::= ">"
+TAG_OPEN_CLOSE ::= "</"
+TAG_SELF_CLOSE ::= "/>"
+EQUALS ::= "="
+COMMENT_START ::= "<!--"
+COMMENT_END ::= "-->"
+NAME ::= /[:_a-zA-Z][_a-zA-Z0-9.-]*/
+ATTR_VALUE ::= /"[^"]*"/
+TEXT ::= /[^<&]+/
 
-property ::= (KEY? SEPARATOR VALUE?) | KEY
+// Grammar rules
+xml_document ::= declaration_opt element
+
+declaration_opt ::= XML_DECL_START attribute_list XML_DECL_END
+                  | /* empty */
+
+element ::= TAG_OPEN NAME attribute_list TAG_CLOSE element_content TAG_OPEN_CLOSE NAME TAG_CLOSE
+          | TAG_OPEN NAME attribute_list TAG_SELF_CLOSE
+
+element_content ::= element_list
+                  | text
+                  | /* empty */
+
+element_list ::= element
+               | element_list element
+
+attribute_list ::= attribute
+                 | attribute_list attribute
+                 | /* empty */
+
+attribute ::= NAME EQUALS ATTR_VALUE
+
+text ::= TEXT
