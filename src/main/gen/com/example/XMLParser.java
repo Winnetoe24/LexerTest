@@ -36,144 +36,20 @@ public class XMLParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // /"[^"
-  public static boolean ATTR_VALUE(PsiBuilder b, int l) {
-    Marker m = enter_section_(b);
-    exit_section_(b, m, ATTR_VALUE, true);
-    return true;
-  }
-
-  /* ********************************************************** */
-  // "-->"
-  public static boolean COMMENT_END(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "COMMENT_END")) return false;
-    boolean r;
-    Marker m = enter_section_(b, l, _NONE_, COMMENT_END, "<comment end>");
-    r = consumeToken(b, "-->");
-    exit_section_(b, l, m, r, false, null);
-    return r;
-  }
-
-  /* ********************************************************** */
-  // "<!--"
-  public static boolean COMMENT_START(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "COMMENT_START")) return false;
-    boolean r;
-    Marker m = enter_section_(b, l, _NONE_, COMMENT_START, "<comment start>");
-    r = consumeToken(b, "<!--");
-    exit_section_(b, l, m, r, false, null);
-    return r;
-  }
-
-  /* ********************************************************** */
-  // /
-  public static boolean ELEMENT_NAME(PsiBuilder b, int l) {
-    Marker m = enter_section_(b);
-    exit_section_(b, m, ELEMENT_NAME, true);
-    return true;
-  }
-
-  /* ********************************************************** */
-  // /
-  public static boolean ENCLOSED_TEXT(PsiBuilder b, int l) {
-    Marker m = enter_section_(b);
-    exit_section_(b, m, ENCLOSED_TEXT, true);
-    return true;
-  }
-
-  /* ********************************************************** */
-  // "="
-  public static boolean EQUALS(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "EQUALS")) return false;
-    boolean r;
-    Marker m = enter_section_(b, l, _NONE_, EQUALS, "<equals>");
-    r = consumeToken(b, "=");
-    exit_section_(b, l, m, r, false, null);
-    return r;
-  }
-
-  /* ********************************************************** */
-  // ">"
-  public static boolean TAG_CLOSE(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "TAG_CLOSE")) return false;
-    boolean r;
-    Marker m = enter_section_(b, l, _NONE_, TAG_CLOSE, "<tag close>");
-    r = consumeToken(b, ">");
-    exit_section_(b, l, m, r, false, null);
-    return r;
-  }
-
-  /* ********************************************************** */
-  // "<"
-  public static boolean TAG_OPEN(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "TAG_OPEN")) return false;
-    boolean r;
-    Marker m = enter_section_(b, l, _NONE_, TAG_OPEN, "<tag open>");
-    r = consumeToken(b, "<");
-    exit_section_(b, l, m, r, false, null);
-    return r;
-  }
-
-  /* ********************************************************** */
-  // "</"
-  public static boolean TAG_OPEN_CLOSE(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "TAG_OPEN_CLOSE")) return false;
-    boolean r;
-    Marker m = enter_section_(b, l, _NONE_, TAG_OPEN_CLOSE, "<tag open close>");
-    r = consumeToken(b, "</");
-    exit_section_(b, l, m, r, false, null);
-    return r;
-  }
-
-  /* ********************************************************** */
-  // "/>"
-  public static boolean TAG_SELF_CLOSE(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "TAG_SELF_CLOSE")) return false;
-    boolean r;
-    Marker m = enter_section_(b, l, _NONE_, TAG_SELF_CLOSE, "<tag self close>");
-    r = consumeToken(b, "/>");
-    exit_section_(b, l, m, r, false, null);
-    return r;
-  }
-
-  /* ********************************************************** */
-  // "?>"
-  public static boolean XML_DECL_END(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "XML_DECL_END")) return false;
-    boolean r;
-    Marker m = enter_section_(b, l, _NONE_, XML_DECL_END, "<xml decl end>");
-    r = consumeToken(b, "?>");
-    exit_section_(b, l, m, r, false, null);
-    return r;
-  }
-
-  /* ********************************************************** */
-  // "<?xml"
-  public static boolean XML_DECL_START(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "XML_DECL_START")) return false;
-    boolean r;
-    Marker m = enter_section_(b, l, _NONE_, XML_DECL_START, "<xml decl start>");
-    r = consumeToken(b, "<?xml");
-    exit_section_(b, l, m, r, false, null);
-    return r;
-  }
-
-  /* ********************************************************** */
   // ELEMENT_NAME EQUALS ATTR_VALUE
   public static boolean attribute(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "attribute")) return false;
+    if (!nextTokenIs(b, ELEMENT_NAME)) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NONE_, ATTRIBUTE, "<attribute>");
-    r = ELEMENT_NAME(b, l + 1);
-    r = r && EQUALS(b, l + 1);
-    r = r && ATTR_VALUE(b, l + 1);
-    exit_section_(b, l, m, r, false, null);
+    Marker m = enter_section_(b);
+    r = consumeTokens(b, 0, ELEMENT_NAME, EQUALS, ATTR_VALUE);
+    exit_section_(b, m, ATTRIBUTE, r);
     return r;
   }
 
   /* ********************************************************** */
   // attribute
-  //                  | attribute_list attribute
+  //                  | attribute attribute_list
   //                  | /* empty */
   public static boolean attribute_list(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "attribute_list")) return false;
@@ -186,13 +62,13 @@ public class XMLParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // attribute_list attribute
+  // attribute attribute_list
   private static boolean attribute_list_1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "attribute_list_1")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = attribute_list(b, l + 1);
-    r = r && attribute(b, l + 1);
+    r = attribute(b, l + 1);
+    r = r && attribute_list(b, l + 1);
     exit_section_(b, m, null, r);
     return r;
   }
@@ -215,9 +91,9 @@ public class XMLParser implements PsiParser, LightPsiParser {
     if (!recursion_guard_(b, l, "declaration_opt_0")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = XML_DECL_START(b, l + 1);
+    r = consumeToken(b, XML_DECL_START);
     r = r && attribute_list(b, l + 1);
-    r = r && XML_DECL_END(b, l + 1);
+    r = r && consumeToken(b, XML_DECL_END);
     exit_section_(b, m, null, r);
     return r;
   }
@@ -227,11 +103,12 @@ public class XMLParser implements PsiParser, LightPsiParser {
   //           | TAG_OPEN ELEMENT_NAME attribute_list TAG_SELF_CLOSE
   public static boolean element(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "element")) return false;
+    if (!nextTokenIs(b, TAG_OPEN)) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NONE_, ELEMENT, "<element>");
+    Marker m = enter_section_(b);
     r = element_0(b, l + 1);
     if (!r) r = element_1(b, l + 1);
-    exit_section_(b, l, m, r, false, null);
+    exit_section_(b, m, ELEMENT, r);
     return r;
   }
 
@@ -240,14 +117,11 @@ public class XMLParser implements PsiParser, LightPsiParser {
     if (!recursion_guard_(b, l, "element_0")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = TAG_OPEN(b, l + 1);
-    r = r && ELEMENT_NAME(b, l + 1);
+    r = consumeTokens(b, 0, TAG_OPEN, ELEMENT_NAME);
     r = r && attribute_list(b, l + 1);
-    r = r && TAG_CLOSE(b, l + 1);
+    r = r && consumeToken(b, TAG_CLOSE);
     r = r && element_content(b, l + 1);
-    r = r && TAG_OPEN_CLOSE(b, l + 1);
-    r = r && ELEMENT_NAME(b, l + 1);
-    r = r && TAG_CLOSE(b, l + 1);
+    r = r && consumeTokens(b, 0, TAG_OPEN_CLOSE, ELEMENT_NAME, TAG_CLOSE);
     exit_section_(b, m, null, r);
     return r;
   }
@@ -257,10 +131,9 @@ public class XMLParser implements PsiParser, LightPsiParser {
     if (!recursion_guard_(b, l, "element_1")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = TAG_OPEN(b, l + 1);
-    r = r && ELEMENT_NAME(b, l + 1);
+    r = consumeTokens(b, 0, TAG_OPEN, ELEMENT_NAME);
     r = r && attribute_list(b, l + 1);
-    r = r && TAG_SELF_CLOSE(b, l + 1);
+    r = r && consumeToken(b, TAG_SELF_CLOSE);
     exit_section_(b, m, null, r);
     return r;
   }
@@ -282,24 +155,25 @@ public class XMLParser implements PsiParser, LightPsiParser {
 
   /* ********************************************************** */
   // element
-  //                | element_list element
+  //                | element element_list
   public static boolean element_list(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "element_list")) return false;
+    if (!nextTokenIs(b, TAG_OPEN)) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NONE_, ELEMENT_LIST, "<element list>");
+    Marker m = enter_section_(b);
     r = element(b, l + 1);
     if (!r) r = element_list_1(b, l + 1);
-    exit_section_(b, l, m, r, false, null);
+    exit_section_(b, m, ELEMENT_LIST, r);
     return r;
   }
 
-  // element_list element
+  // element element_list
   private static boolean element_list_1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "element_list_1")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = element_list(b, l + 1);
-    r = r && element(b, l + 1);
+    r = element(b, l + 1);
+    r = r && element_list(b, l + 1);
     exit_section_(b, m, null, r);
     return r;
   }
@@ -308,10 +182,11 @@ public class XMLParser implements PsiParser, LightPsiParser {
   // ENCLOSED_TEXT
   public static boolean enclosed_text(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "enclosed_text")) return false;
+    if (!nextTokenIs(b, ENCLOSED_TEXT)) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NONE_, ENCLOSED_TEXT, "<enclosed text>");
-    r = ENCLOSED_TEXT(b, l + 1);
-    exit_section_(b, l, m, r, false, null);
+    Marker m = enter_section_(b);
+    r = consumeToken(b, ENCLOSED_TEXT);
+    exit_section_(b, m, ENCLOSED_TEXT, r);
     return r;
   }
 
@@ -325,6 +200,7 @@ public class XMLParser implements PsiParser, LightPsiParser {
   // declaration_opt element
   public static boolean xml_document(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "xml_document")) return false;
+    if (!nextTokenIs(b, "<xml document>", TAG_OPEN, XML_DECL_START)) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, XML_DOCUMENT, "<xml document>");
     r = declaration_opt(b, l + 1);

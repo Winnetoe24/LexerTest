@@ -7,54 +7,6 @@ import com.intellij.psi.PsiElement;
 
 public class XMLVisitor extends PsiElementVisitor {
 
-  public void visitAttrValue(@NotNull XMLAttrValue o) {
-    visitPsiElement(o);
-  }
-
-  public void visitCommentEnd(@NotNull XMLCommentEnd o) {
-    visitPsiElement(o);
-  }
-
-  public void visitCommentStart(@NotNull XMLCommentStart o) {
-    visitPsiElement(o);
-  }
-
-  public void visitElementName(@NotNull XMLElementName o) {
-    visitPsiElement(o);
-  }
-
-  public void visitEnclosedText(@NotNull XMLEnclosedText o) {
-    visitPsiElement(o);
-  }
-
-  public void visitEquals(@NotNull XMLEquals o) {
-    visitPsiElement(o);
-  }
-
-  public void visitTagClose(@NotNull XMLTagClose o) {
-    visitPsiElement(o);
-  }
-
-  public void visitTagOpen(@NotNull XMLTagOpen o) {
-    visitPsiElement(o);
-  }
-
-  public void visitTagOpenClose(@NotNull XMLTagOpenClose o) {
-    visitPsiElement(o);
-  }
-
-  public void visitTagSelfClose(@NotNull XMLTagSelfClose o) {
-    visitPsiElement(o);
-  }
-
-  public void visitXmlDeclEnd(@NotNull XMLXmlDeclEnd o) {
-    visitPsiElement(o);
-  }
-
-  public void visitXmlDeclStart(@NotNull XMLXmlDeclStart o) {
-    visitPsiElement(o);
-  }
-
   public void visitAttribute(@NotNull XMLAttribute o) {
     visitPsiElement(o);
   }
@@ -76,6 +28,10 @@ public class XMLVisitor extends PsiElementVisitor {
   }
 
   public void visitElementList(@NotNull XMLElementList o) {
+    visitPsiElement(o);
+  }
+
+  public void visitEnclosedText(@NotNull XMLEnclosedText o) {
     visitPsiElement(o);
   }
 

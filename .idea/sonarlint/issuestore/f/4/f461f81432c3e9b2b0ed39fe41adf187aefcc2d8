@@ -1,0 +1,53 @@
+
+	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(ãŞİJ$7c09d602-67e8-42d0-8b7b-88067684a8c6
+š	java:S135Ø"YReduce the total number of break and continue statements in this loop to use at most one.(˜ïˆÿÿÿÿÿJ$46ee37d6-f983-4276-90cc-43fabc514d1f
+o
+java:S1199ˆ"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿJ$143da1ab-14e7-49cc-8ab3-bc19049c5dec
+¡
+java:S4144R"`Update this method so that its implementation is not identical to "zzUnpackcmap_top" on line 50.(‚…ëåøÿÿÿÿJ$89eb116c-60db-46e7-8f9a-8c5fa2be9f97
+œ
+java:S4144p"`Update this method so that its implementation is not identical to "zzUnpackcmap_top" on line 50.(âÃ¼ J$bbd55bf2-ce71-479f-8ab5-a5ec07a390dd
+œ
+java:S4144İ"`Update this method so that its implementation is not identical to "zzUnpackcmap_top" on line 50.(ª’¼)J$1c6db3bf-8433-4630-b87f-662ccbbfee34
+“
+java:S1450í"VRemove the "zzState" field and declare it as a local variable in the relevant methods.(±çïìJ$318f325a-cdaf-4de8-8a51-baa1acf2fe3a
+f
+java:S1197"*Move the array designators [] to the type.(¹ğÁJ$20951c2b-d5d8-4333-abf0-4eb64a7d009c
+‰	java:S100+"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°Ç‹«J$921c600b-d0e1-4455-a84a-74f742d56944
+{
+java:S1854.":Remove this useless assignment to local variable "offset".(¨‚“ÄÿÿÿÿÿJ$f7a4b22a-7ca3-47ab-8b54-29710db1dd4f
+‰	java:S1002"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íë£ÏJ$bee6925a-0249-4fb5-bb2c-11d2e07ebe23
+‰	java:S100K"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÍÆ·‡J$b4044f1d-8452-49a4-a319-7c68a2cb991c
+{
+java:S1854N":Remove this useless assignment to local variable "offset".(åáÜÔúÿÿÿÿJ$3d569d2e-1294-4e53-977c-d6c2208ad0ac
+	java:S100R"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚…ëåøÿÿÿÿJ$5ced71a4-447f-442c-a2e3-30ee564c6c05
+v
+java:S1854l":Remove this useless assignment to local variable "offset".(˜òÃ™J$cbd022d5-f02c-4ac4-8023-5a84a4035807
+w
+java:S1854‹":Remove this useless assignment to local variable "offset".(¡÷Ã¨J$07477038-013c-4dc9-b7fb-4e70ec479d37
+|
+java:S1854¯":Remove this useless assignment to local variable "offset".(Ì¸“ÅúÿÿÿÿJ$196aa715-de1f-4298-b104-8a2d56bb1c82
+|
+java:S1854Ù":Remove this useless assignment to local variable "offset".(¡í¶ùÿÿÿÿJ$2bb79f05-a67f-4287-832c-85d2627a728f
+v
+java:S3400¬"9Remove this method and declare a constant for this value.(§¼ÉçJ$43fb9437-e10e-413f-8cd9-665be39453bf
+v
+java:S3400Ğ"9Remove this method and declare a constant for this value.(§¼ÉçJ$3b62b276-9bb0-4737-b994-b95006902fb5
+©
+java:S1130Ï"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(Òß‘àJ$72cfadd6-f5cf-4fe9-850d-6097a8639245
+
+java:S3776¸"RRefactor this method to reduce its Cognitive Complexity from 40 to the 15 allowed.(‡ÆÇ€J$297e689f-157a-4e8a-94fc-2d102d5ce282
+x
+java:S1119×";Refactor the code to remove this label and the need for it.(şİôŠJ$539fae37-6cbe-475a-a6cf-6a30764ecf8d
+
+java:S1479"BReduce the number of non-empty switch cases from 35 to at most 30.(ÿáöôJ$2c6d4935-961a-49f7-8baf-4c05f71a4b53
+m
+java:S1068"1Remove this unused "ZZ_BUFFERSIZE" private field.(·²¿’J$48a7f6e7-e44e-4208-8390-77ab17908e0b
+n
+java:S1068ê",Remove this unused "zzReader" private field.(ı©¤ªúÿÿÿÿJ$d012c87f-5d5c-4ac0-8cd5-110da416f23c
+p
+java:S1144¦"3Remove this unused private "zzMaxBufferLen" method.(™Ú‡J$a45a3d9b-9362-49b0-9ff9-294905f3c6fb
+p
+java:S1144«".Remove this unused private "zzCanGrow" method.(¶ØÏÔûÿÿÿÿJ$a2377acd-a63e-407d-aaa8-b1436f68387f
+„
+java:S6541¸"ÆA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 140 to 64, Complexity from 47 to 14, Nesting Level from 4 to 2, Number of Variables from 12 to 6.(‡ÆÇ€J$6188d93c-c39e-4a55-ab17-f3f16f3ebf42

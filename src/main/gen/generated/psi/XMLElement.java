@@ -8,21 +8,6 @@ import com.intellij.psi.PsiElement;
 public interface XMLElement extends PsiElement {
 
   @NotNull
-  List<XMLElementName> getElementNameList();
-
-  @NotNull
-  List<XMLTagClose> getTagCloseList();
-
-  @NotNull
-  XMLTagOpen getTagOpen();
-
-  @Nullable
-  XMLTagOpenClose getTagOpenClose();
-
-  @Nullable
-  XMLTagSelfClose getTagSelfClose();
-
-  @NotNull
   XMLAttributeList getAttributeList();
 
   @Nullable

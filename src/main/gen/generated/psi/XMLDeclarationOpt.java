@@ -8,12 +8,6 @@ import com.intellij.psi.PsiElement;
 public interface XMLDeclarationOpt extends PsiElement {
 
   @Nullable
-  XMLXmlDeclEnd getXmlDeclEnd();
-
-  @Nullable
-  XMLXmlDeclStart getXmlDeclStart();
-
-  @Nullable
   XMLAttributeList getAttributeList();
 
 }

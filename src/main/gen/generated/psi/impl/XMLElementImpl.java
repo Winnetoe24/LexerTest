@@ -29,36 +29,6 @@ public class XMLElementImpl extends ASTWrapperPsiElement implements XMLElement {
 
   @Override
   @NotNull
-  public List<XMLElementName> getElementNameList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, XMLElementName.class);
-  }
-
-  @Override
-  @NotNull
-  public List<XMLTagClose> getTagCloseList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, XMLTagClose.class);
-  }
-
-  @Override
-  @NotNull
-  public XMLTagOpen getTagOpen() {
-    return findNotNullChildByClass(XMLTagOpen.class);
-  }
-
-  @Override
-  @Nullable
-  public XMLTagOpenClose getTagOpenClose() {
-    return findChildByClass(XMLTagOpenClose.class);
-  }
-
-  @Override
-  @Nullable
-  public XMLTagSelfClose getTagSelfClose() {
-    return findChildByClass(XMLTagSelfClose.class);
-  }
-
-  @Override
-  @NotNull
   public XMLAttributeList getAttributeList() {
     return findNotNullChildByClass(XMLAttributeList.class);
   }

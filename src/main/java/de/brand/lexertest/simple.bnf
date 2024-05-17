@@ -2,30 +2,33 @@
 {
   parserClass="com.example.XMLParser"
   extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+ // extends="com.intellij.lang.parser.GeneratedParserUtilBase"
+
   psiClassPrefix="XML"
   psiImplClassSuffix="Impl"
   elementTypeHolderClass="com.example.XMLElementTypes"
   elementTypeClass="de.brand.lexertest.XMLElementType"
   tokenTypeClass="de.brand.lexertest.XMLTokenType"
+  tokens = [
+      XML_DECL_START = "<?xml"
+      XML_DECL_END = "?>"
+      //COMMENT_START = "<!--"
+      //COMMENT_END = "-->"
+      TAG_OPEN = "<"
+      TAG_CLOSE = ">"
+      TAG_OPEN_CLOSE = "</"
+      TAG_SELF_CLOSE = "/>"
+      EQUALS = "="
+      ELEMENT_NAME = /[:_a-zA-Z][_a-zA-Z0-9.-]*/
+      ATTR_VALUE = /"[^"]*"/
+      ENCLOSED_TEXT = /[^<&]+/
+      DOUBLE_QUOTE = "\""
+    ]
 }
+
 
 root ::= xml_document
 
-// Tokens
-XML_DECL_START ::= "<?xml"
-XML_DECL_END ::= "?>"
-TAG_OPEN ::= "<"
-TAG_CLOSE ::= ">"
-TAG_OPEN_CLOSE ::= "</"
-TAG_SELF_CLOSE ::= "/>"
-EQUALS ::= "="
-COMMENT_START ::= "<!--"
-COMMENT_END ::= "-->"
-ELEMENT_NAME ::= /[:_a-zA-Z][_a-zA-Z0-9.-]*/
-ATTR_VALUE ::= /"[^"]*"/
-ENCLOSED_TEXT ::= /[^<&]+/
-
-// Grammar rules
 xml_document ::= declaration_opt element
 
 declaration_opt ::= XML_DECL_START attribute_list XML_DECL_END
@@ -39,10 +42,10 @@ element_content ::= element_list
                   | /* empty */
 
 element_list ::= element
-               | element_list element
+               | element element_list
 
 attribute_list ::= attribute
-                 | attribute_list attribute
+                 | attribute attribute_list
                  | /* empty */
 
 attribute ::= ELEMENT_NAME EQUALS ATTR_VALUE

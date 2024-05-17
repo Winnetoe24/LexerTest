@@ -1,107 +1,63 @@
-package de.brand.lexertest;
+/* XMLLexer.flex */
+package com.example;
 
 import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.tree.IElementType;
-
-import static com.intellij.psi.TokenType.BAD_CHARACTER;
-import static com.intellij.psi.TokenType.WHITE_SPACE;
-import static org.intellij.sdk.language.psi.SimpleTypes.*;
+import static com.example.XMLTokenType.*;
 
 %%
 
-%{
-  public _SimpleLexer() {
-    this((java.io.Reader)null);
-  }
-
-  private StringBuilder textBuffer = new StringBuilder();
-%}
-
-%{
-
-    /* User class code section */
-    public void yyerror(String error) {
-        System.err.println("Error: " + error);
-    }
-
-%}
-
-%public
-%class _SimpleLexer
+%class XMLLexer
 %implements FlexLexer
 %function advance
 %type IElementType
 %unicode
+%public
+%final
 %state COMMENT
 %state ATTR_VALUE
 
 
-/* Regular Expressions */
-Whitespace      = [ \t\n\r\f]
-Letter          = [a-zA-Z]
-Digit           = [0-9]
+Whitespace      = [ \t\n\r\f]+
 NameStartChar   = [:_a-zA-Z]
 NameChar        = [:_a-zA-Z0-9.-]
 Name            = {NameStartChar}{NameChar}*
 
 %%
 
-/* Rules */
-
-/* Ignore whitespace */
 <YYINITIAL> {
-    {Whitespace}+ { /* Ignore whitespace */ }
-}
+    {Whitespace} { /* Skip whitespace */ }
 
-/* XML Declaration */
-<YYINITIAL> {
-    "<?xml"      { return symbol(sym.XML_DECL_START); }
-    "?>"         { return symbol(sym.XML_DECL_END); }
-}
+    "<?xml"      { return XML_DECL_START; }
+    "?>"         { return XML_DECL_END; }
 
-/* XML Comments */
-<YYINITIAL> {
-    "<!--"       { yybegin(COMMENT); }
+    "<!--"       { yybegin(COMMENT); return COMMENT_START; }
+    "<"          { return TAG_OPEN; }
+    ">"          { return TAG_CLOSE; }
+    "</"         { return TAG_OPEN_CLOSE; }
+    "/>"         { return TAG_SELF_CLOSE; }
+    "="          { return EQUALS; }
+
+    {Name}       { return NAME; }
+    "\""         { yybegin(ATTR_VALUE); return DOUBLE_QUOTE; }
 }
 
 <COMMENT> {
-    "-->"        { yybegin(YYINITIAL); return symbol(sym.COMMENT_END); }
+    "-->"        { yybegin(YYINITIAL); return COMMENT_END; }
     [^-]+        { /* Ignore comment content */ }
     "-"          { /* Ignore single '-' */ }
 }
 
-/* Tags */
-<YYINITIAL> {
-    "<"          { return symbol(sym.TAG_OPEN); }
-    ">"          { return symbol(sym.TAG_CLOSE); }
-    "</"         { return symbol(sym.TAG_OPEN_CLOSE); }
-    "/>"         { return symbol(sym.TAG_SELF_CLOSE); }
-}
-
-/* Names (elements, attributes) */
-<YYINITIAL> {
-    {Name}       { return symbol(sym.NAME, yytext()); }
-}
-
-/* Attributes and their values */
-<YYINITIAL> {
-    "="          { return symbol(sym.EQUALS); }
-    "\""         { yybegin(ATTR_VALUE); }
-}
-
 <ATTR_VALUE> {
-    "\""         { yybegin(YYINITIAL); }
-    [^\"]+       { return symbol(sym.ATTR_VALUE, yytext()); }
+    "\""         { yybegin(YYINITIAL); return DOUBLE_QUOTE; }
+    [^\"]+       { return ATTR_VALUE; }
 }
 
-/* Text content */
-<YYINITIAL> {
-    {Letter}+    { return symbol(sym.TEXT, yytext()); }
-    {Digit}+     { return symbol(sym.TEXT, yytext()); }
-    [^<&]+       { return symbol(sym.TEXT, yytext()); }
+<YYINITIAL, ATTR_VALUE> {
+    {Name}       { return NAME; }
+    [^<&]+       { return TEXT; }
 }
 
-/* End of file */
 <<EOF>> {
-    return symbol(sym.EOF);
+    return null;
 }

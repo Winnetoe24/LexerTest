@@ -31,5 +31,8 @@
                     fieldName="INSTANCE"
                     language="Simple"
                     extensions="simple"/>
+            <lang.parserDefinition
+                    language="Simple"
+                    implementationClass="de.brand.lexertest.SimpleParserDefinition"/>
         </extensions>
 </idea-plugin>

@@ -1,56 +1,56 @@
 
-	java:S112ª"FDefine and throw a dedicated exception instead of using a generic one.(ãŞİJ$4167a7d6-5a4b-4e25-b255-76a57b1a8d98
-š	java:S135å"YReduce the total number of break and continue statements in this loop to use at most one.(˜ïˆÿÿÿÿÿJ$6befc662-409f-4551-9014-3c75f228a1bb
-	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ó††ˆûÿÿÿÿJ$4f3587c1-e7fb-40ab-b1d9-468a28e8f3ad
+	java:S112ª"FDefine and throw a dedicated exception instead of using a generic one.(ãŞİJ$60067471-3ef6-4828-964f-78a84b21f136
+š	java:S135å"YReduce the total number of break and continue statements in this loop to use at most one.(˜ïˆÿÿÿÿÿJ$3ff4ff17-c63c-4af2-a6da-d02e6c97a5e2
+	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ó††ˆûÿÿÿÿJ$d1e5e2a1-e91a-49e0-9e0f-36ba342a28de
 o
-java:S1199•"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿJ$7cf22560-dcc5-473f-94a3-78a66666e282
+java:S1199•"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿJ$b582ee98-b376-40b7-b41d-6b8e6e5d8aa2
 ¡
-java:S4144T"`Update this method so that its implementation is not identical to "zzUnpackcmap_top" on line 52.(‚…ëåøÿÿÿÿJ$199d1be8-5b5e-4dcc-b3e7-27654c1095c1
+java:S4144T"`Update this method so that its implementation is not identical to "zzUnpackcmap_top" on line 52.(‚…ëåøÿÿÿÿJ$9fa00f33-252f-4cae-be54-5f2807c9850c
 œ
-java:S4144q"`Update this method so that its implementation is not identical to "zzUnpackcmap_top" on line 52.(âÃ¼ J$71ad6f53-c7ec-4db3-9405-9731ffa5d45e
+java:S4144q"`Update this method so that its implementation is not identical to "zzUnpackcmap_top" on line 52.(âÃ¼ J$e2845177-d4ec-4480-86d0-69b8a9dc4892
 œ
-java:S4144İ"`Update this method so that its implementation is not identical to "zzUnpackcmap_top" on line 52.(ª’¼)J$6849046e-b96e-47ab-9f4d-3e6703f4b1ae
+java:S4144İ"`Update this method so that its implementation is not identical to "zzUnpackcmap_top" on line 52.(ª’¼)J$0900e145-2acd-44d2-8f9d-6ebb1a6ef7c3
 “
-java:S1450í"VRemove the "zzState" field and declare it as a local variable in the relevant methods.(±çïìJ$ab6e7272-7242-49cd-9909-563af462abc8
+java:S1450í"VRemove the "zzState" field and declare it as a local variable in the relevant methods.(±çïìJ$715ee720-6343-4b70-8bc5-5294d405d023
 f
-java:S1197!"*Move the array designators [] to the type.(¹ğÁJ$2121afa8-9aa5-4a99-bca5-357595b82536
-‰	java:S100-"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°Ç‹«J$41575416-9f63-44b6-b09e-deec082de8f9
+java:S1197!"*Move the array designators [] to the type.(¹ğÁJ$cc781598-be35-4bb5-bf0e-12fbe0686c11
+‰	java:S100-"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°Ç‹«J$9d630646-002c-4a15-873f-b7f417853755
 {
-java:S18540":Remove this useless assignment to local variable "offset".(¨‚“ÄÿÿÿÿÿJ$2d12e8d5-ff35-4a4f-accf-8fe4ce4f6e8e
-‰	java:S1004"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íë£ÏJ$99e20cae-ce4e-41e1-a1eb-01bcc8e1f8d2
-‰	java:S100M"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÍÆ·‡J$67c56d5a-0106-4e95-89d1-0846150b0fef
+java:S18540":Remove this useless assignment to local variable "offset".(¨‚“ÄÿÿÿÿÿJ$00132847-0986-4c65-afa4-3d41c3eb8b7f
+‰	java:S1004"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íë£ÏJ$2b65d3f8-3ea5-4134-97fc-2cfd1f5ca01c
+‰	java:S100M"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÍÆ·‡J$00c40901-e1b8-40e6-beff-1a3447e209bd
 {
-java:S1854P":Remove this useless assignment to local variable "offset".(åáÜÔúÿÿÿÿJ$e0553e5e-a41e-4280-9aed-825e9c5c0cf8
-	java:S100T"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚…ëåøÿÿÿÿJ$36e0bffc-15d7-434d-a720-c295c8fe9c9d
+java:S1854P":Remove this useless assignment to local variable "offset".(åáÜÔúÿÿÿÿJ$46ac288d-2c4e-4002-9e1d-3c6237ce7154
+	java:S100T"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚…ëåøÿÿÿÿJ$16e6b02d-a801-4812-a852-ab5bc610eac5
 v
-java:S1854m":Remove this useless assignment to local variable "offset".(˜òÃ™J$0c4f2940-427d-4c18-8afa-d4af3deb6cc5
+java:S1854m":Remove this useless assignment to local variable "offset".(˜òÃ™J$4a3c5b71-974e-45e7-b31b-96af58ef59e4
 w
-java:S1854Œ":Remove this useless assignment to local variable "offset".(¡÷Ã¨J$29c7b44d-e74f-45f9-b758-6eb2ae6d8833
+java:S1854Œ":Remove this useless assignment to local variable "offset".(¡÷Ã¨J$f6bfa124-cc74-4ab3-8dc6-fcddc765f8e6
 |
-java:S1854¯":Remove this useless assignment to local variable "offset".(Ì¸“ÅúÿÿÿÿJ$3b7dbfa2-6215-4ef4-be47-0f3eac1dff96
+java:S1854¯":Remove this useless assignment to local variable "offset".(Ì¸“ÅúÿÿÿÿJ$a3b7c18b-134f-4bb8-9a39-25d997879fab
 |
-java:S1854Ù":Remove this useless assignment to local variable "offset".(¡í¶ùÿÿÿÿJ$51b993c0-baf5-491c-b742-f2aa13b6c4a9
+java:S1854Ù":Remove this useless assignment to local variable "offset".(¡í¶ùÿÿÿÿJ$cdf6977e-299a-46a1-a46f-42b2d4eab228
 v
-java:S3400¹"9Remove this method and declare a constant for this value.(§¼ÉçJ$1df984c4-94d7-426c-ad5f-2654a46e9bc0
+java:S3400¹"9Remove this method and declare a constant for this value.(§¼ÉçJ$594ede3e-b8b9-4ab4-97cf-53c5754c08ec
 v
-java:S3400İ"9Remove this method and declare a constant for this value.(§¼ÉçJ$32e8e0b8-5c99-4bd9-b39a-1b8b4f1b50ad
+java:S3400İ"9Remove this method and declare a constant for this value.(§¼ÉçJ$5e2c65c3-492a-4b28-8ed4-13f54009c8ba
 ©
-java:S1130Ü"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(Òß‘àJ$2bebde9e-67c0-40ff-ba6a-a7bc525cee28
+java:S1130Ü"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(Òß‘àJ$513cc7c7-a13b-4379-b91e-aa8cb8da0e70
 
-java:S3776Å"RRefactor this method to reduce its Cognitive Complexity from 40 to the 15 allowed.(‡ÆÇ€J$f12f5be4-30cc-4483-97f5-b3ddb3b7e37b
+java:S3776Å"RRefactor this method to reduce its Cognitive Complexity from 40 to the 15 allowed.(‡ÆÇ€J$51eef230-2809-4628-9bf8-7dad765efc9a
 x
-java:S1119ä";Refactor the code to remove this label and the need for it.(şİôŠJ$e6c4ff2a-401c-404c-b63f-d3ea601b97d1
+java:S1119ä";Refactor the code to remove this label and the need for it.(şİôŠJ$51492de1-9ed4-496b-af20-438ee71a5cd8
 
-java:S1479š"BReduce the number of non-empty switch cases from 35 to at most 30.(ÿáöôJ$66caa261-462b-4bbe-8ff5-00951925f5b7
+java:S1479š"BReduce the number of non-empty switch cases from 35 to at most 30.(ÿáöôJ$7a95ef1e-21a9-4f74-9214-9eabe04784ed
 m
-java:S1068"1Remove this unused "ZZ_BUFFERSIZE" private field.(·²¿’J$7f7b6954-554e-4c9c-bb51-7de804ac3ddf
+java:S1068"1Remove this unused "ZZ_BUFFERSIZE" private field.(·²¿’J$ebe11439-44b0-44a1-9354-02b8b87e05d6
 n
-java:S1068ê",Remove this unused "zzReader" private field.(ı©¤ªúÿÿÿÿJ$10952fa8-e967-48b0-9cf8-f4138a97beeb
+java:S1068ê",Remove this unused "zzReader" private field.(ı©¤ªúÿÿÿÿJ$a06c6bca-e3be-41c7-a914-97e30d67ea71
 p
-java:S1068Ÿ".Remove this unused "textBuffer" private field.(¯±ÂûÿÿÿÿJ$5d5a10d2-a06f-456e-acfb-c6abdaf5f0a5
+java:S1068Ÿ".Remove this unused "textBuffer" private field.(¯±ÂûÿÿÿÿJ$4d9b1a30-bf47-4a20-abb9-ca3c64efe92e
 p
-java:S1144³"3Remove this unused private "zzMaxBufferLen" method.(™Ú‡J$0de2b64e-ce09-4305-ac4f-38878406a55d
+java:S1144³"3Remove this unused private "zzMaxBufferLen" method.(™Ú‡J$88dde634-37a2-44ed-8001-4cad3d39fb59
 p
-java:S1144¸".Remove this unused private "zzCanGrow" method.(¶ØÏÔûÿÿÿÿJ$28600c1b-a0ab-42d9-98bf-348b8b59ff75
+java:S1144¸".Remove this unused private "zzCanGrow" method.(¶ØÏÔûÿÿÿÿJ$c0784c64-dc9b-422f-ae47-c434cc14b29b
 „
-java:S6541Å"ÆA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 140 to 64, Complexity from 47 to 14, Nesting Level from 4 to 2, Number of Variables from 12 to 6.(‡ÆÇ€J$89ce9873-892e-4ae0-8634-d4835df2d797
+java:S6541Å"ÆA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 140 to 64, Complexity from 47 to 14, Nesting Level from 4 to 2, Number of Variables from 12 to 6.(‡ÆÇ€J$9eb1e3b7-78c8-4f60-b74d-8c51cee4e591

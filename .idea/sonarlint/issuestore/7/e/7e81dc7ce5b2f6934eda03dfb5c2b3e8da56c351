@@ -1,7 +1,5 @@
 
-¶
-java:S1845"zRename field "EQUALS" to prevent any misunderstanding/clash with method "equals" defined in superclass "java.lang.Object".(Á¿÷J$5c792c74-31eb-4cc4-ae0d-d750dcb54633
+½
+java:S1845"zRename field "EQUALS" to prevent any misunderstanding/clash with method "equals" defined in superclass "java.lang.Object".(¯§ëô8¤ºğ´ø1J$2be9f263-c34b-4dd8-9df3-c8d46830af59
 }
-java:S1118%":Add a private constructor to hide the implicit public one.(öı²Ê8Ü®ê³ø1J$5fe04f4f-b726-4ab0-aa19-c4d8951e07e5
-š
-java:S3776&"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(ªš‚ıúÿÿÿÿ8Ş®ê³ø1J$5b79402d-42c6-405b-8fe2-7a31c96e838e
+java:S1118#":Add a private constructor to hide the implicit public one.(öı²Ê8²ºğ´ø1J$34389fa2-bd1b-43c1-8c6e-55a1ac92dec0

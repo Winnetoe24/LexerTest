@@ -29,18 +29,6 @@ public class XMLDeclarationOptImpl extends ASTWrapperPsiElement implements XMLDe
 
   @Override
   @Nullable
-  public XMLXmlDeclEnd getXmlDeclEnd() {
-    return findChildByClass(XMLXmlDeclEnd.class);
-  }
-
-  @Override
-  @Nullable
-  public XMLXmlDeclStart getXmlDeclStart() {
-    return findChildByClass(XMLXmlDeclStart.class);
-  }
-
-  @Override
-  @Nullable
   public XMLAttributeList getAttributeList() {
     return findChildByClass(XMLAttributeList.class);
   }
