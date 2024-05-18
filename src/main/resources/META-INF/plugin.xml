@@ -34,5 +34,8 @@
             <lang.parserDefinition
                     language="Simple"
                     implementationClass="de.brand.lexertest.SimpleParserDefinition"/>
+            <lang.syntaxHighlighterFactory
+                    language="Simple"
+                    implementationClass="de.brand.lexertest.SimpleSyntaxHighlighterFactory"/>
         </extensions>
 </idea-plugin>
