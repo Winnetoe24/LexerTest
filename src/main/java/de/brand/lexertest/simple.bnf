@@ -1,6 +1,7 @@
 // XML.bnf
 {
   parserClass="com.example.XMLParser"
+  parserUtilClass="com.example.XMLParserUtil"
   extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
  // extends="com.intellij.lang.parser.GeneratedParserUtilBase"
 

@@ -13,4 +13,8 @@ public interface XMLElementSelfCloseToken extends PsiElement {
   @NotNull
   PsiElement getElementName();
 
+  //WARNING: getTag_Open(...) is skipped
+  //matching getTag_Open(XMLElementSelfCloseToken, ...)
+  //methods are not found in null
+
 }

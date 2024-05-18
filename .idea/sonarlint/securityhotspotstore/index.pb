@@ -1708,3 +1708,5 @@ m
 =src/main/java/de/brand/lexertest/SimpleSyntaxHighlighter.java,5\9\59025e38097d0d9421b39bba72d1d1c0db60b9eb
 t
 Dsrc/main/java/de/brand/lexertest/SimpleSyntaxHighlighterFactory.java,7\d\7d900819bea52270f76b6cb5560411e2cf39b7f9
+[
++src/main/gen/com/example/XMLParserUtil.java,2\c\2cc1bf84b700b4338c8ac2717cfc260b4b82276a
