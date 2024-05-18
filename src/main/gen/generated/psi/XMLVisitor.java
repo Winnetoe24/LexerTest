@@ -15,6 +15,14 @@ public class XMLVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitAttributeString(@NotNull XMLAttributeString o) {
+    visitPsiElement(o);
+  }
+
+  public void visitComment(@NotNull XMLComment o) {
+    visitPsiElement(o);
+  }
+
   public void visitDeclarationOpt(@NotNull XMLDeclarationOpt o) {
     visitPsiElement(o);
   }
@@ -27,11 +35,19 @@ public class XMLVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitElementEndToken(@NotNull XMLElementEndToken o) {
+    visitPsiElement(o);
+  }
+
   public void visitElementList(@NotNull XMLElementList o) {
     visitPsiElement(o);
   }
 
-  public void visitEnclosedText(@NotNull XMLEnclosedText o) {
+  public void visitElementSelfCloseToken(@NotNull XMLElementSelfCloseToken o) {
+    visitPsiElement(o);
+  }
+
+  public void visitElementStartToken(@NotNull XMLElementStartToken o) {
     visitPsiElement(o);
   }
 

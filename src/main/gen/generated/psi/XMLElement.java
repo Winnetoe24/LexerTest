@@ -8,9 +8,15 @@ import com.intellij.psi.PsiElement;
 public interface XMLElement extends PsiElement {
 
   @Nullable
-  XMLAttributeList getAttributeList();
+  XMLElementContent getElementContent();
 
   @Nullable
-  XMLElementContent getElementContent();
+  XMLElementEndToken getElementEndToken();
+
+  @Nullable
+  XMLElementSelfCloseToken getElementSelfCloseToken();
+
+  @Nullable
+  XMLElementStartToken getElementStartToken();
 
 }

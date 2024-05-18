@@ -29,14 +29,26 @@ public class XMLElementImpl extends ASTWrapperPsiElement implements XMLElement {
 
   @Override
   @Nullable
-  public XMLAttributeList getAttributeList() {
-    return findChildByClass(XMLAttributeList.class);
+  public XMLElementContent getElementContent() {
+    return findChildByClass(XMLElementContent.class);
   }
 
   @Override
   @Nullable
-  public XMLElementContent getElementContent() {
-    return findChildByClass(XMLElementContent.class);
+  public XMLElementEndToken getElementEndToken() {
+    return findChildByClass(XMLElementEndToken.class);
+  }
+
+  @Override
+  @Nullable
+  public XMLElementSelfCloseToken getElementSelfCloseToken() {
+    return findChildByClass(XMLElementSelfCloseToken.class);
+  }
+
+  @Override
+  @Nullable
+  public XMLElementStartToken getElementStartToken() {
+    return findChildByClass(XMLElementStartToken.class);
   }
 
 }

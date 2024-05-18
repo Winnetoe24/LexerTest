@@ -11,32 +11,20 @@ import static com.example.XMLElementTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import generated.psi.*;
 
-public class XMLElementContentImpl extends ASTWrapperPsiElement implements XMLElementContent {
+public class XMLCommentImpl extends ASTWrapperPsiElement implements XMLComment {
 
-  public XMLElementContentImpl(@NotNull ASTNode node) {
+  public XMLCommentImpl(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull XMLVisitor visitor) {
-    visitor.visitElementContent(this);
+    visitor.visitComment(this);
   }
 
   @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof XMLVisitor) accept((XMLVisitor)visitor);
     else super.accept(visitor);
-  }
-
-  @Override
-  @NotNull
-  public List<XMLElementList> getElementListList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, XMLElementList.class);
-  }
-
-  @Override
-  @Nullable
-  public PsiElement getEnclosedTextToken() {
-    return findChildByType(ENCLOSED_TEXT_TOKEN);
   }
 
 }

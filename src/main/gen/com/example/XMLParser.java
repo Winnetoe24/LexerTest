@@ -36,40 +36,67 @@ public class XMLParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // ELEMENT_NAME EQUALS DOUBLE_QUOTE ATTRIBUTE_VALUE DOUBLE_QUOTE
+  // ELEMENT_NAME EQUALS attribute_string
   public static boolean attribute(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "attribute")) return false;
     if (!nextTokenIs(b, ELEMENT_NAME)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeTokens(b, 0, ELEMENT_NAME, EQUALS, DOUBLE_QUOTE, ATTRIBUTE_VALUE, DOUBLE_QUOTE);
+    r = consumeTokens(b, 0, ELEMENT_NAME, EQUALS);
+    r = r && attribute_string(b, l + 1);
     exit_section_(b, m, ATTRIBUTE, r);
     return r;
   }
 
   /* ********************************************************** */
-  // attribute
-  //                  | attribute attribute_list
+  // attribute+
   //                  | /* empty */
   public static boolean attribute_list(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "attribute_list")) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, ATTRIBUTE_LIST, "<attribute list>");
-    r = attribute(b, l + 1);
-    if (!r) r = attribute_list_1(b, l + 1);
-    if (!r) r = consumeToken(b, ATTRIBUTE_LIST_2_0);
+    r = attribute_list_0(b, l + 1);
+    if (!r) r = consumeToken(b, ATTRIBUTE_LIST_1_0);
     exit_section_(b, l, m, r, false, null);
     return r;
   }
 
-  // attribute attribute_list
-  private static boolean attribute_list_1(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "attribute_list_1")) return false;
+  // attribute+
+  private static boolean attribute_list_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "attribute_list_0")) return false;
     boolean r;
     Marker m = enter_section_(b);
     r = attribute(b, l + 1);
-    r = r && attribute_list(b, l + 1);
+    while (r) {
+      int c = current_position_(b);
+      if (!attribute(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "attribute_list_0", c)) break;
+    }
     exit_section_(b, m, null, r);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // DOUBLE_QUOTE ATTRIBUTE_VALUE DOUBLE_QUOTE
+  public static boolean attribute_string(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "attribute_string")) return false;
+    if (!nextTokenIs(b, DOUBLE_QUOTE)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeTokens(b, 0, DOUBLE_QUOTE, ATTRIBUTE_VALUE, DOUBLE_QUOTE);
+    exit_section_(b, m, ATTRIBUTE_STRING, r);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // COMMENT_START COMMENT_END
+  public static boolean comment(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "comment")) return false;
+    if (!nextTokenIs(b, COMMENT_START)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeTokens(b, 0, COMMENT_START, COMMENT_END);
+    exit_section_(b, m, COMMENT, r);
     return r;
   }
 
@@ -99,116 +126,134 @@ public class XMLParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // TAG_OPEN ELEMENT_NAME attribute_list? TAG_CLOSE element_content? TAG_OPEN_CLOSE ELEMENT_NAME TAG_CLOSE
-  //           | TAG_OPEN ELEMENT_NAME attribute_list? TAG_SELF_CLOSE
+  // element_start_token element_content? element_end_token
+  //           | element_self_close_token
   public static boolean element(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "element")) return false;
     if (!nextTokenIs(b, TAG_OPEN)) return false;
     boolean r;
     Marker m = enter_section_(b);
     r = element_0(b, l + 1);
-    if (!r) r = element_1(b, l + 1);
+    if (!r) r = element_self_close_token(b, l + 1);
     exit_section_(b, m, ELEMENT, r);
     return r;
   }
 
-  // TAG_OPEN ELEMENT_NAME attribute_list? TAG_CLOSE element_content? TAG_OPEN_CLOSE ELEMENT_NAME TAG_CLOSE
+  // element_start_token element_content? element_end_token
   private static boolean element_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "element_0")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeTokens(b, 0, TAG_OPEN, ELEMENT_NAME);
-    r = r && element_0_2(b, l + 1);
-    r = r && consumeToken(b, TAG_CLOSE);
-    r = r && element_0_4(b, l + 1);
-    r = r && consumeTokens(b, 0, TAG_OPEN_CLOSE, ELEMENT_NAME, TAG_CLOSE);
+    r = element_start_token(b, l + 1);
+    r = r && element_0_1(b, l + 1);
+    r = r && element_end_token(b, l + 1);
     exit_section_(b, m, null, r);
     return r;
   }
 
-  // attribute_list?
-  private static boolean element_0_2(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "element_0_2")) return false;
-    attribute_list(b, l + 1);
-    return true;
-  }
-
   // element_content?
-  private static boolean element_0_4(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "element_0_4")) return false;
+  private static boolean element_0_1(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "element_0_1")) return false;
     element_content(b, l + 1);
     return true;
   }
 
-  // TAG_OPEN ELEMENT_NAME attribute_list? TAG_SELF_CLOSE
-  private static boolean element_1(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "element_1")) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeTokens(b, 0, TAG_OPEN, ELEMENT_NAME);
-    r = r && element_1_2(b, l + 1);
-    r = r && consumeToken(b, TAG_SELF_CLOSE);
-    exit_section_(b, m, null, r);
-    return r;
-  }
-
-  // attribute_list?
-  private static boolean element_1_2(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "element_1_2")) return false;
-    attribute_list(b, l + 1);
-    return true;
-  }
-
   /* ********************************************************** */
-  // element_list
-  //                   | enclosed_text
+  // element_list+
+  //                   | ENCLOSED_TEXT_TOKEN
   //                   | /* empty */
   public static boolean element_content(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "element_content")) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, ELEMENT_CONTENT, "<element content>");
-    r = element_list(b, l + 1);
-    if (!r) r = enclosed_text(b, l + 1);
+    r = element_content_0(b, l + 1);
+    if (!r) r = consumeToken(b, ENCLOSED_TEXT_TOKEN);
     if (!r) r = consumeToken(b, ELEMENT_CONTENT_2_0);
     exit_section_(b, l, m, r, false, null);
     return r;
   }
 
-  /* ********************************************************** */
-  // element
-  //                | element element_list
-  public static boolean element_list(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "element_list")) return false;
-    if (!nextTokenIs(b, TAG_OPEN)) return false;
+  // element_list+
+  private static boolean element_content_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "element_content_0")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = element(b, l + 1);
-    if (!r) r = element_list_1(b, l + 1);
-    exit_section_(b, m, ELEMENT_LIST, r);
-    return r;
-  }
-
-  // element element_list
-  private static boolean element_list_1(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "element_list_1")) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = element(b, l + 1);
-    r = r && element_list(b, l + 1);
+    r = element_list(b, l + 1);
+    while (r) {
+      int c = current_position_(b);
+      if (!element_list(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "element_content_0", c)) break;
+    }
     exit_section_(b, m, null, r);
     return r;
   }
 
   /* ********************************************************** */
-  // ENCLOSED_TEXT_TOKEN
-  public static boolean enclosed_text(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "enclosed_text")) return false;
-    if (!nextTokenIs(b, ENCLOSED_TEXT_TOKEN)) return false;
+  // TAG_OPEN_CLOSE ELEMENT_NAME TAG_CLOSE
+  public static boolean element_end_token(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "element_end_token")) return false;
+    if (!nextTokenIs(b, TAG_OPEN_CLOSE)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeToken(b, ENCLOSED_TEXT_TOKEN);
-    exit_section_(b, m, ENCLOSED_TEXT, r);
+    r = consumeTokens(b, 0, TAG_OPEN_CLOSE, ELEMENT_NAME, TAG_CLOSE);
+    exit_section_(b, m, ELEMENT_END_TOKEN, r);
     return r;
+  }
+
+  /* ********************************************************** */
+  // element
+  //                | comment
+  public static boolean element_list(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "element_list")) return false;
+    if (!nextTokenIs(b, "<element list>", COMMENT_START, TAG_OPEN)) return false;
+    boolean r;
+    Marker m = enter_section_(b, l, _NONE_, ELEMENT_LIST, "<element list>");
+    r = element(b, l + 1);
+    if (!r) r = comment(b, l + 1);
+    exit_section_(b, l, m, r, false, null);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // TAG_OPEN ELEMENT_NAME attribute_list? TAG_SELF_CLOSE
+  public static boolean element_self_close_token(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "element_self_close_token")) return false;
+    if (!nextTokenIs(b, TAG_OPEN)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeTokens(b, 0, TAG_OPEN, ELEMENT_NAME);
+    r = r && element_self_close_token_2(b, l + 1);
+    r = r && consumeToken(b, TAG_SELF_CLOSE);
+    exit_section_(b, m, ELEMENT_SELF_CLOSE_TOKEN, r);
+    return r;
+  }
+
+  // attribute_list?
+  private static boolean element_self_close_token_2(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "element_self_close_token_2")) return false;
+    attribute_list(b, l + 1);
+    return true;
+  }
+
+  /* ********************************************************** */
+  // TAG_OPEN ELEMENT_NAME attribute_list? TAG_CLOSE
+  public static boolean element_start_token(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "element_start_token")) return false;
+    if (!nextTokenIs(b, TAG_OPEN)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeTokens(b, 0, TAG_OPEN, ELEMENT_NAME);
+    r = r && element_start_token_2(b, l + 1);
+    r = r && consumeToken(b, TAG_CLOSE);
+    exit_section_(b, m, ELEMENT_START_TOKEN, r);
+    return r;
+  }
+
+  // attribute_list?
+  private static boolean element_start_token_2(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "element_start_token_2")) return false;
+    attribute_list(b, l + 1);
+    return true;
   }
 
   /* ********************************************************** */

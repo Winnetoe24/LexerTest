@@ -34,7 +34,7 @@ Name            = {NameStartChar}{NameChar}*
     "<?xml"      { return XML_DECL_START; }
     "?>"         { return XML_DECL_END; }
 
-//    "<!--"       { yybegin(COMMENT); return COMMENT_START; }
+    "<!--"       { yybegin(COMMENT); return COMMENT_START; }
     "<"          { yybegin(BEGINN_START_TAG); return TAG_OPEN; }
     "</"         { yybegin(END_TAG); return TAG_OPEN_CLOSE; }
     [^<&]+     { return ENCLOSED_TEXT_TOKEN; }
@@ -69,7 +69,7 @@ Name            = {NameStartChar}{NameChar}*
 
 
 <COMMENT> {
-//    "-->"        { yybegin(YYINITIAL); return COMMENT_END; }
+    "-->"        { yybegin(YYINITIAL); return COMMENT_END; }
     [^-]+        { /* Ignore comment content */ }
     "-"          { /* Ignore single '-' */ }
 }

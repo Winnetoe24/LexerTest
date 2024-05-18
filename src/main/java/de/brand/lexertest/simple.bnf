@@ -12,8 +12,8 @@
   tokens = [
       XML_DECL_START = "<?xml"
       XML_DECL_END = "?>"
-      //COMMENT_START = "<!--"
-      //COMMENT_END = "-->"
+      COMMENT_START = "<!--"
+      COMMENT_END = "-->"
       TAG_OPEN = "<"
       TAG_CLOSE = ">"
       TAG_OPEN_CLOSE = "</"
@@ -34,20 +34,25 @@ xml_document ::= declaration_opt? element
 declaration_opt ::= XML_DECL_START attribute_list XML_DECL_END
                   | /* empty */
 
-element ::= TAG_OPEN ELEMENT_NAME attribute_list? TAG_CLOSE element_content? TAG_OPEN_CLOSE ELEMENT_NAME TAG_CLOSE
-          | TAG_OPEN ELEMENT_NAME attribute_list? TAG_SELF_CLOSE
+element ::= element_start_token element_content? element_end_token
+          | element_self_close_token
 
-element_content ::= element_list
-                  | enclosed_text
+element_start_token ::= TAG_OPEN ELEMENT_NAME attribute_list? TAG_CLOSE
+element_end_token ::= TAG_OPEN_CLOSE ELEMENT_NAME TAG_CLOSE
+element_self_close_token ::= TAG_OPEN ELEMENT_NAME attribute_list? TAG_SELF_CLOSE
+
+element_content ::= element_list+
+                  | ENCLOSED_TEXT_TOKEN
                   | /* empty */
 
 element_list ::= element
-               | element element_list
+               | comment
 
-attribute_list ::= attribute
-                 | attribute attribute_list
+attribute_list ::= attribute+
                  | /* empty */
 
-attribute ::= ELEMENT_NAME EQUALS DOUBLE_QUOTE ATTRIBUTE_VALUE DOUBLE_QUOTE
+attribute ::= ELEMENT_NAME EQUALS attribute_string
+attribute_string ::= DOUBLE_QUOTE ATTRIBUTE_VALUE DOUBLE_QUOTE
+//enclosed_text ::=
 
-enclosed_text ::= ENCLOSED_TEXT_TOKEN
+comment ::= COMMENT_START COMMENT_END

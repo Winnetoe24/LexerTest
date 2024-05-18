@@ -11,14 +11,14 @@ import static com.example.XMLElementTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import generated.psi.*;
 
-public class XMLEnclosedTextImpl extends ASTWrapperPsiElement implements XMLEnclosedText {
+public class XMLAttributeStringImpl extends ASTWrapperPsiElement implements XMLAttributeString {
 
-  public XMLEnclosedTextImpl(@NotNull ASTNode node) {
+  public XMLAttributeStringImpl(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull XMLVisitor visitor) {
-    visitor.visitEnclosedText(this);
+    visitor.visitAttributeString(this);
   }
 
   @Override
@@ -29,8 +29,8 @@ public class XMLEnclosedTextImpl extends ASTWrapperPsiElement implements XMLEncl
 
   @Override
   @NotNull
-  public PsiElement getEnclosedTextToken() {
-    return findNotNullChildByType(ENCLOSED_TEXT_TOKEN);
+  public PsiElement getAttributeValue() {
+    return findNotNullChildByType(ATTRIBUTE_VALUE);
   }
 
 }

@@ -28,15 +28,15 @@ public class XMLElementListImpl extends ASTWrapperPsiElement implements XMLEleme
   }
 
   @Override
-  @NotNull
-  public XMLElement getElement() {
-    return findNotNullChildByClass(XMLElement.class);
+  @Nullable
+  public XMLComment getComment() {
+    return findChildByClass(XMLComment.class);
   }
 
   @Override
   @Nullable
-  public XMLElementList getElementList() {
-    return findChildByClass(XMLElementList.class);
+  public XMLElement getElement() {
+    return findChildByClass(XMLElement.class);
   }
 
 }

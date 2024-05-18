@@ -7,10 +7,10 @@ import com.intellij.psi.PsiElement;
 
 public interface XMLElementList extends PsiElement {
 
-  @NotNull
-  XMLElement getElement();
+  @Nullable
+  XMLComment getComment();
 
   @Nullable
-  XMLElementList getElementList();
+  XMLElement getElement();
 
 }

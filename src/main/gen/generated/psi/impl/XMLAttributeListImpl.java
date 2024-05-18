@@ -28,15 +28,9 @@ public class XMLAttributeListImpl extends ASTWrapperPsiElement implements XMLAtt
   }
 
   @Override
-  @Nullable
-  public XMLAttribute getAttribute() {
-    return findChildByClass(XMLAttribute.class);
-  }
-
-  @Override
-  @Nullable
-  public XMLAttributeList getAttributeList() {
-    return findChildByClass(XMLAttributeList.class);
+  @NotNull
+  public List<XMLAttribute> getAttributeList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, XMLAttribute.class);
   }
 
 }

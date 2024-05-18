@@ -5,9 +5,12 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface XMLAttributeList extends PsiElement {
+public interface XMLElementSelfCloseToken extends PsiElement {
+
+  @Nullable
+  XMLAttributeList getAttributeList();
 
   @NotNull
-  List<XMLAttribute> getAttributeList();
+  PsiElement getElementName();
 
 }

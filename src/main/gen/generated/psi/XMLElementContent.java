@@ -7,10 +7,10 @@ import com.intellij.psi.PsiElement;
 
 public interface XMLElementContent extends PsiElement {
 
-  @Nullable
-  XMLElementList getElementList();
+  @NotNull
+  List<XMLElementList> getElementListList();
 
   @Nullable
-  XMLEnclosedText getEnclosedText();
+  PsiElement getEnclosedTextToken();
 
 }
