@@ -8,6 +8,9 @@ import com.intellij.psi.PsiElement;
 public interface XMLAttribute extends PsiElement {
 
   @NotNull
+  PsiElement getAttributeValue();
+
+  @NotNull
   PsiElement getElementName();
 
 }

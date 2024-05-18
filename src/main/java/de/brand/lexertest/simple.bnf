@@ -20,22 +20,22 @@
       TAG_SELF_CLOSE = "/>"
       EQUALS = "="
       DOUBLE_QUOTE = "\""
-      ELEMENT_NAME = /[:_a-zA-Z][_a-zA-Z0-9.-]*/
-      ATTR_VALUE = /"[^"]*"/
-      ENCLOSED_TEXT = /[^<&]+/
+      ELEMENT_NAME = "regexp:/[:_a-zA-Z][_a-zA-Z0-9.-]*/"
+      ATTRIBUTE_VALUE = "regexp:/[^\"]*/"
+      ENCLOSED_TEXT_TOKEN = "regexp:/((\\.)|[^<&\"])+/"
     ]
 }
 
 
 root ::= xml_document
 
-xml_document ::= declaration_opt element
+xml_document ::= declaration_opt? element
 
 declaration_opt ::= XML_DECL_START attribute_list XML_DECL_END
                   | /* empty */
 
-element ::= TAG_OPEN ELEMENT_NAME attribute_list TAG_CLOSE element_content TAG_OPEN_CLOSE ELEMENT_NAME TAG_CLOSE
-          | TAG_OPEN ELEMENT_NAME attribute_list TAG_SELF_CLOSE
+element ::= TAG_OPEN ELEMENT_NAME attribute_list? TAG_CLOSE element_content? TAG_OPEN_CLOSE ELEMENT_NAME TAG_CLOSE
+          | TAG_OPEN ELEMENT_NAME attribute_list? TAG_SELF_CLOSE
 
 element_content ::= element_list
                   | enclosed_text
@@ -48,6 +48,6 @@ attribute_list ::= attribute
                  | attribute attribute_list
                  | /* empty */
 
-attribute ::= ELEMENT_NAME EQUALS ATTR_VALUE
+attribute ::= ELEMENT_NAME EQUALS DOUBLE_QUOTE ATTRIBUTE_VALUE DOUBLE_QUOTE
 
-enclosed_text ::= ENCLOSED_TEXT
+enclosed_text ::= ENCLOSED_TEXT_TOKEN

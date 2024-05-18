@@ -7,7 +7,7 @@ import com.intellij.psi.PsiElement;
 
 public interface XMLXmlDocument extends PsiElement {
 
-  @NotNull
+  @Nullable
   XMLDeclarationOpt getDeclarationOpt();
 
   @NotNull

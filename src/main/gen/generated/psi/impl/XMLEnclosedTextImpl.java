@@ -27,4 +27,10 @@ public class XMLEnclosedTextImpl extends ASTWrapperPsiElement implements XMLEncl
     else super.accept(visitor);
   }
 
+  @Override
+  @NotNull
+  public PsiElement getEnclosedTextToken() {
+    return findNotNullChildByType(ENCLOSED_TEXT_TOKEN);
+  }
+
 }

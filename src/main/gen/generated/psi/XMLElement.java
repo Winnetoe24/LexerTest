@@ -7,7 +7,7 @@ import com.intellij.psi.PsiElement;
 
 public interface XMLElement extends PsiElement {
 
-  @NotNull
+  @Nullable
   XMLAttributeList getAttributeList();
 
   @Nullable

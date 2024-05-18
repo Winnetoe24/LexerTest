@@ -1,12 +1,12 @@
 
 ‘
-java:S6201"NReplace this instanceof check and cast with 'instanceof XMLVisitor xmlvisitor'(™¥³Á8´¦Úµø1J$b2a0991c-f4f1-4d45-b068-732a1066e30f
+java:S6201"NReplace this instanceof check and cast with 'instanceof XMLVisitor xmlvisitor'(™¥³Á8´¦Úµø1J$55b0bee3-de81-4c22-a623-7a6d4b89b1bd
 s
-java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8¼¦Úµø1J$3e18f1c8-191b-4325-9deb-49d9a238e3ce
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8¼¦Úµø1J$b2a81c10-e114-47e6-9f31-361ae6bc043e
 €
-java:S1128"8Remove this unused import 'com.intellij.psi.PsiElement'.(àÐýàüÿÿÿÿ8¼¦Úµø1J$9c3b998c-7c6c-4b00-a7a2-defd4d7ce146
+java:S1128"8Remove this unused import 'com.intellij.psi.PsiElement'.(àÐýàüÿÿÿÿ8¼¦Úµø1J$10ac19b1-4ccf-4d38-827a-f02786a3a604
 †
-java:S1128	">Remove this unused import 'com.intellij.psi.util.PsiTreeUtil'.(–¢Û¶þÿÿÿÿ8½¦Úµø1J$efa11874-8a57-4018-b2bc-a3b96736aa57
+java:S1128	">Remove this unused import 'com.intellij.psi.util.PsiTreeUtil'.(–¢Û¶þÿÿÿÿ8½¦Úµø1J$4608166f-c3c4-4200-a389-f0ee49d6d748
 z
 java:S1128
-"8Remove this unused import 'com.example.XMLElementTypes'.(‚—¢&8½¦Úµø1J$36cfcd3b-461a-43e8-9903-62e98ee4151f
+"8Remove this unused import 'com.example.XMLElementTypes'.(‚—¢&8½¦Úµø1J$3137cc0a-5a0a-43e7-ad8a-e9a8e2991200

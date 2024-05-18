@@ -28,9 +28,9 @@ public class XMLXmlDocumentImpl extends ASTWrapperPsiElement implements XMLXmlDo
   }
 
   @Override
-  @NotNull
+  @Nullable
   public XMLDeclarationOpt getDeclarationOpt() {
-    return findNotNullChildByClass(XMLDeclarationOpt.class);
+    return findChildByClass(XMLDeclarationOpt.class);
   }
 
   @Override

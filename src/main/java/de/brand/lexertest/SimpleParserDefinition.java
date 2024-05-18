@@ -1,6 +1,7 @@
 package de.brand.lexertest;
 
 import com.example.XMLElementTypes;
+import com.example.XMLParser;
 import com.intellij.lang.ASTNode;
 import com.intellij.lang.ParserDefinition;
 import com.intellij.lang.PsiParser;
@@ -11,8 +12,6 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.tree.IFileElementType;
 import com.intellij.psi.tree.TokenSet;
-import org.intellij.sdk.language.parser.SimpleParser;
-import org.intellij.sdk.language.psi.SimpleTypes;
 import org.jetbrains.annotations.NotNull;
 
 final class SimpleParserDefinition implements ParserDefinition {
@@ -40,7 +39,7 @@ final class SimpleParserDefinition implements ParserDefinition {
   @NotNull
   @Override
   public PsiParser createParser(final Project project) {
-    return new SimpleParser();
+    return new XMLParser();
   }
 
   @NotNull

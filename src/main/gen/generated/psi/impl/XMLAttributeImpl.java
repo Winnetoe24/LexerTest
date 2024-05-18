@@ -29,6 +29,12 @@ public class XMLAttributeImpl extends ASTWrapperPsiElement implements XMLAttribu
 
   @Override
   @NotNull
+  public PsiElement getAttributeValue() {
+    return findNotNullChildByType(ATTRIBUTE_VALUE);
+  }
+
+  @Override
+  @NotNull
   public PsiElement getElementName() {
     return findNotNullChildByType(ELEMENT_NAME);
   }

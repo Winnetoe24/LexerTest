@@ -1,0 +1,12 @@
+
+q
+java:S6201"TReplace this instanceof check and cast with 'instanceof SimpleVisitor simplevisitor'(ÁøùÞ8ô€¬×ø1
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8ù€¬×ø1
+Z
+java:S1128"8Remove this unused import 'com.intellij.psi.PsiElement'.(àÐýàüÿÿÿÿ8ú€¬×ø1
+`
+java:S1128	">Remove this unused import 'com.intellij.psi.util.PsiTreeUtil'.(–¢Û¶þÿÿÿÿ8ú€¬×ø1
+c
+java:S1128
+"FRemove this unused import 'org.intellij.sdk.language.psi.SimpleTypes'.(¿£Öˆ8û€¬×ø1

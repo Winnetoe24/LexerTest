@@ -15,6 +15,9 @@ import static com.example.XMLElementTypes.*;
 %public
 %final
 %state COMMENT
+%state BEGINN_START_TAG
+%state START_TAG
+%state END_TAG
 %state ATTR_VALUE
 
 
@@ -32,15 +35,38 @@ Name            = {NameStartChar}{NameChar}*
     "?>"         { return XML_DECL_END; }
 
 //    "<!--"       { yybegin(COMMENT); return COMMENT_START; }
-    "<"          { return TAG_OPEN; }
-    ">"          { return TAG_CLOSE; }
-    "</"         { return TAG_OPEN_CLOSE; }
-    "/>"         { return TAG_SELF_CLOSE; }
-    "="          { return EQUALS; }
+    "<"          { yybegin(BEGINN_START_TAG); return TAG_OPEN; }
+    "</"         { yybegin(END_TAG); return TAG_OPEN_CLOSE; }
+    [^<&]+     { return ENCLOSED_TEXT_TOKEN; }
 
-    {Name}       { return NAME; }
+}
+
+<BEGINN_START_TAG> {
+    {Whitespace} { /* Skip whitespace */ }
+    {Name}       { yybegin(START_TAG); return ELEMENT_NAME; }
+}
+
+<START_TAG> {
+    {Whitespace} { /* Skip whitespace */ }
+    {Name}       { return ELEMENT_NAME; }
+    "="          { return EQUALS; }
     "\""         { yybegin(ATTR_VALUE); return DOUBLE_QUOTE; }
 }
+
+<BEGINN_START_TAG, START_TAG> {
+    {Whitespace} { /* Skip whitespace */ }
+    ">"          { yybegin(YYINITIAL); return TAG_CLOSE; }
+    "/>"         { yybegin(YYINITIAL); return TAG_SELF_CLOSE; }
+}
+
+
+
+<END_TAG> {
+    {Whitespace} { /* Skip whitespace */ }
+    {Name}       { return ELEMENT_NAME; }
+    ">"          { yybegin(YYINITIAL); return TAG_CLOSE; }
+}
+
 
 <COMMENT> {
 //    "-->"        { yybegin(YYINITIAL); return COMMENT_END; }
@@ -49,14 +75,14 @@ Name            = {NameStartChar}{NameChar}*
 }
 
 <ATTR_VALUE> {
-    "\""         { yybegin(YYINITIAL); return DOUBLE_QUOTE; }
-    [^\"]+       { return ATTR_VALUE; }
+    "\""         { yybegin(START_TAG); return DOUBLE_QUOTE; }
+    [^\"]+       { return ATTRIBUTE_VALUE; }
 }
-
-<YYINITIAL, ATTR_VALUE> {
-    {Name}       { return NAME; }
-    [^<&]+       { return TEXT; }
-}
+//
+//<YYINITIAL> {
+// //   {Name}               { return ELEMENT_NAME; }
+////    ((\\.)|[^<&\"])+     { return ENCLOSED_TEXT_TOKEN; }
+//}
 
 <<EOF>> {
     return null;

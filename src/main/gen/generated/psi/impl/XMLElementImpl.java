@@ -28,9 +28,9 @@ public class XMLElementImpl extends ASTWrapperPsiElement implements XMLElement {
   }
 
   @Override
-  @NotNull
+  @Nullable
   public XMLAttributeList getAttributeList() {
-    return findNotNullChildByClass(XMLAttributeList.class);
+    return findChildByClass(XMLAttributeList.class);
   }
 
   @Override
