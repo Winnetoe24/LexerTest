@@ -3,7 +3,7 @@ package com.example;
 
 import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.tree.IElementType;
-import static com.example.XMLTokenType.*;
+import static com.example.XMLElementTypes.*;
 
 %%
 
@@ -31,7 +31,7 @@ Name            = {NameStartChar}{NameChar}*
     "<?xml"      { return XML_DECL_START; }
     "?>"         { return XML_DECL_END; }
 
-    "<!--"       { yybegin(COMMENT); return COMMENT_START; }
+//    "<!--"       { yybegin(COMMENT); return COMMENT_START; }
     "<"          { return TAG_OPEN; }
     ">"          { return TAG_CLOSE; }
     "</"         { return TAG_OPEN_CLOSE; }
@@ -43,7 +43,7 @@ Name            = {NameStartChar}{NameChar}*
 }
 
 <COMMENT> {
-    "-->"        { yybegin(YYINITIAL); return COMMENT_END; }
+//    "-->"        { yybegin(YYINITIAL); return COMMENT_END; }
     [^-]+        { /* Ignore comment content */ }
     "-"          { /* Ignore single '-' */ }
 }

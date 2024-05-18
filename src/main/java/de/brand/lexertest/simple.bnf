@@ -19,10 +19,10 @@
       TAG_OPEN_CLOSE = "</"
       TAG_SELF_CLOSE = "/>"
       EQUALS = "="
+      DOUBLE_QUOTE = "\""
       ELEMENT_NAME = /[:_a-zA-Z][_a-zA-Z0-9.-]*/
       ATTR_VALUE = /"[^"]*"/
       ENCLOSED_TEXT = /[^<&]+/
-      DOUBLE_QUOTE = "\""
     ]
 }
 

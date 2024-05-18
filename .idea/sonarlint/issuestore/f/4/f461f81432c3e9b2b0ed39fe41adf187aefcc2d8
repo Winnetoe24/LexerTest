@@ -1,53 +1,53 @@
 
-	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(ãŞİJ$7c09d602-67e8-42d0-8b7b-88067684a8c6
-š	java:S135Ø"YReduce the total number of break and continue statements in this loop to use at most one.(˜ïˆÿÿÿÿÿJ$46ee37d6-f983-4276-90cc-43fabc514d1f
-o
-java:S1199ˆ"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿJ$143da1ab-14e7-49cc-8ab3-bc19049c5dec
-¡
-java:S4144R"`Update this method so that its implementation is not identical to "zzUnpackcmap_top" on line 50.(‚…ëåøÿÿÿÿJ$89eb116c-60db-46e7-8f9a-8c5fa2be9f97
-œ
-java:S4144p"`Update this method so that its implementation is not identical to "zzUnpackcmap_top" on line 50.(âÃ¼ J$bbd55bf2-ce71-479f-8ab5-a5ec07a390dd
-œ
-java:S4144İ"`Update this method so that its implementation is not identical to "zzUnpackcmap_top" on line 50.(ª’¼)J$1c6db3bf-8433-4630-b87f-662ccbbfee34
-“
-java:S1450í"VRemove the "zzState" field and declare it as a local variable in the relevant methods.(±çïìJ$318f325a-cdaf-4de8-8a51-baa1acf2fe3a
-f
-java:S1197"*Move the array designators [] to the type.(¹ğÁJ$20951c2b-d5d8-4333-abf0-4eb64a7d009c
-‰	java:S100+"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°Ç‹«J$921c600b-d0e1-4455-a84a-74f742d56944
-{
-java:S1854.":Remove this useless assignment to local variable "offset".(¨‚“ÄÿÿÿÿÿJ$f7a4b22a-7ca3-47ab-8b54-29710db1dd4f
-‰	java:S1002"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íë£ÏJ$bee6925a-0249-4fb5-bb2c-11d2e07ebe23
-‰	java:S100K"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÍÆ·‡J$b4044f1d-8452-49a4-a319-7c68a2cb991c
-{
-java:S1854N":Remove this useless assignment to local variable "offset".(åáÜÔúÿÿÿÿJ$3d569d2e-1294-4e53-977c-d6c2208ad0ac
-	java:S100R"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚…ëåøÿÿÿÿJ$5ced71a4-447f-442c-a2e3-30ee564c6c05
+ˆ	java:S112š"FDefine and throw a dedicated exception instead of using a generic one.(ãŞİ8üÊãµø1J$ef16efaf-b6a0-48c7-8671-3932cf016796
+¡	java:S135Õ"YReduce the total number of break and continue statements in this loop to use at most one.(˜ïˆÿÿÿÿÿ8€Ëãµø1J$1f9847f2-c164-4bef-b680-981e18951157
 v
-java:S1854l":Remove this useless assignment to local variable "offset".(˜òÃ™J$cbd022d5-f02c-4ac4-8023-5a84a4035807
-w
-java:S1854‹":Remove this useless assignment to local variable "offset".(¡÷Ã¨J$07477038-013c-4dc9-b7fb-4e70ec479d37
-|
-java:S1854¯":Remove this useless assignment to local variable "offset".(Ì¸“ÅúÿÿÿÿJ$196aa715-de1f-4298-b104-8a2d56bb1c82
-|
-java:S1854Ù":Remove this useless assignment to local variable "offset".(¡í¶ùÿÿÿÿJ$2bb79f05-a67f-4287-832c-85d2627a728f
-v
-java:S3400¬"9Remove this method and declare a constant for this value.(§¼ÉçJ$43fb9437-e10e-413f-8cd9-665be39453bf
-v
-java:S3400Ğ"9Remove this method and declare a constant for this value.(§¼ÉçJ$3b62b276-9bb0-4737-b994-b95006902fb5
-©
-java:S1130Ï"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(Òß‘àJ$72cfadd6-f5cf-4fe9-850d-6097a8639245
-
-java:S3776¸"RRefactor this method to reduce its Cognitive Complexity from 40 to the 15 allowed.(‡ÆÇ€J$297e689f-157a-4e8a-94fc-2d102d5ce282
-x
-java:S1119×";Refactor the code to remove this label and the need for it.(şİôŠJ$539fae37-6cbe-475a-a6cf-6a30764ecf8d
-
-java:S1479"BReduce the number of non-empty switch cases from 35 to at most 30.(ÿáöôJ$2c6d4935-961a-49f7-8baf-4c05f71a4b53
+java:S1199…"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8„Ëãµø1J$23be5a31-b552-412a-87e1-cd2d66aa05f9
+¨
+java:S4144R"`Update this method so that its implementation is not identical to "zzUnpackcmap_top" on line 50.(‚…ëåøÿÿÿÿ8ºËãµø1J$9feffe98-16f1-45dc-a509-9ab9661f895d
+£
+java:S4144o"`Update this method so that its implementation is not identical to "zzUnpackcmap_top" on line 50.(âÃ¼ 8»Ëãµø1J$f3893e28-953c-42e8-aae0-95486a7b682d
+£
+java:S4144Ú"`Update this method so that its implementation is not identical to "zzUnpackcmap_top" on line 50.(ª’¼)8»Ëãµø1J$a4fd5bb8-3b04-4777-ba13-7803d4e9dbc4
+š
+java:S1450ê"VRemove the "zzState" field and declare it as a local variable in the relevant methods.(±çïì8¿Ëãµø1J$416606b5-77f3-445f-a98e-f47893d4a04a
 m
-java:S1068"1Remove this unused "ZZ_BUFFERSIZE" private field.(·²¿’J$48a7f6e7-e44e-4208-8390-77ab17908e0b
-n
-java:S1068ê",Remove this unused "zzReader" private field.(ı©¤ªúÿÿÿÿJ$d012c87f-5d5c-4ac0-8cd5-110da416f23c
-p
-java:S1144¦"3Remove this unused private "zzMaxBufferLen" method.(™Ú‡J$a45a3d9b-9362-49b0-9ff9-294905f3c6fb
-p
-java:S1144«".Remove this unused private "zzCanGrow" method.(¶ØÏÔûÿÿÿÿJ$a2377acd-a63e-407d-aaa8-b1436f68387f
-„
-java:S6541¸"ÆA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 140 to 64, Complexity from 47 to 14, Nesting Level from 4 to 2, Number of Variables from 12 to 6.(‡ÆÇ€J$6188d93c-c39e-4a55-ab17-f3f16f3ebf42
+java:S1197"*Move the array designators [] to the type.(¹ğÁ8ÃËãµø1J$abd07a28-d45b-4faf-b5f4-eee214bceffb
+	java:S100+"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°Ç‹«8ÅËãµø1J$9d0425bd-f306-4899-ab9c-c41d0e523b19
+‚
+java:S1854.":Remove this useless assignment to local variable "offset".(¨‚“Äÿÿÿÿÿ8ÇËãµø1J$c0b3a0f7-0123-4c04-9ae6-10fe568c5852
+	java:S1002"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íë£Ï8ÈËãµø1J$ec97bdf0-7147-4cb3-b697-97e8288a7cc6
+	java:S100K"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÍÆ·‡8ÊËãµø1J$b559c370-c0a7-47bd-b8c1-09c28c871354
+‚
+java:S1854N":Remove this useless assignment to local variable "offset".(åáÜÔúÿÿÿÿ8ËËãµø1J$27e3ee6f-e7be-49ce-98d7-a658e8950849
+•	java:S100R"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚…ëåøÿÿÿÿ8ÌËãµø1J$0be6e2e2-b5a5-4d14-97be-85dd375849dc
+}
+java:S1854k":Remove this useless assignment to local variable "offset".(˜òÃ™8ÎËãµø1J$32e96a0b-e037-45e5-a39e-b62c63cd49a9
+~
+java:S1854‰":Remove this useless assignment to local variable "offset".(¡÷Ã¨8ÑËãµø1J$03ab95c7-6651-486f-93ee-619cb2571d93
+ƒ
+java:S1854¬":Remove this useless assignment to local variable "offset".(Ì¸“Åúÿÿÿÿ8ÓËãµø1J$6f674772-a117-492c-8d28-c4b173bf0091
+ƒ
+java:S1854Ö":Remove this useless assignment to local variable "offset".(¡í¶ùÿÿÿÿ8ØËãµø1J$3ab20a6b-e049-4bfa-b3c9-30191c4f2664
+}
+java:S3400©"9Remove this method and declare a constant for this value.(§¼Éç8ŞËãµø1J$f592af29-012b-4357-9c45-cc341d3eb90f
+}
+java:S3400Í"9Remove this method and declare a constant for this value.(§¼Éç8áËãµø1J$dc84fd98-2442-4614-8f71-b6a4e856df14
+°
+java:S1130Ì"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(Òß‘à8ãËãµø1J$54d36410-8a95-447b-98c8-4565d93a96bd
+–
+java:S3776µ"RRefactor this method to reduce its Cognitive Complexity from 40 to the 15 allowed.(‡ÆÇ€8ìËãµø1J$3bbb41ab-1aaa-458d-9d6e-ca3c870c2b69
+
+java:S1119Ô";Refactor the code to remove this label and the need for it.(şİôŠ8ğËãµø1J$4167083b-124e-4fcd-8115-9a04fa8b3908
+†
+java:S1479Š"BReduce the number of non-empty switch cases from 31 to at most 30.(ÿáöô8³Ìãµø1J$fcac5097-d79f-4aec-84ee-d00c11a55cbf
+t
+java:S1068"1Remove this unused "ZZ_BUFFERSIZE" private field.(·²¿’8ÀÌãµø1J$5b64844b-38f4-46c6-a792-103ce88db59f
+u
+java:S1068ç",Remove this unused "zzReader" private field.(ı©¤ªúÿÿÿÿ8ÏÌãµø1J$6cf30e8d-8a0c-49ef-9e6b-7a0b61ab0b29
+w
+java:S1144£"3Remove this unused private "zzMaxBufferLen" method.(™Ú‡8ßÌãµø1J$398b8165-e8d8-4eee-a1ea-7943da6f97f7
+w
+java:S1144¨".Remove this unused private "zzCanGrow" method.(¶ØÏÔûÿÿÿÿ8àÌãµø1J$bc8409d3-96a5-4624-ae98-8f0a07971593
+‹
+java:S6541µ"ÆA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 132 to 64, Complexity from 43 to 14, Nesting Level from 4 to 2, Number of Variables from 12 to 6.(‡ÆÇ€8íÌãµø1J$40091bf4-c913-449d-af6d-048d14fe6e1a

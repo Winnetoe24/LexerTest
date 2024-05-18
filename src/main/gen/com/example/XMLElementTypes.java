@@ -22,6 +22,7 @@ public interface XMLElementTypes {
   IElementType ATTRIBUTE_LIST_2_0 = new XMLTokenType("attribute_list_2_0");
   IElementType ATTR_VALUE = new XMLTokenType("ATTR_VALUE");
   IElementType DECLARATION_OPT_1_0 = new XMLTokenType("declaration_opt_1_0");
+  IElementType DOUBLE_QUOTE = new XMLTokenType("\"");
   IElementType ELEMENT_CONTENT_2_0 = new XMLTokenType("element_content_2_0");
   IElementType ELEMENT_NAME = new XMLTokenType("ELEMENT_NAME");
   IElementType EQUALS = new XMLTokenType("=");
