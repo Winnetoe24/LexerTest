@@ -9,7 +9,7 @@ import com.intellij.psi.tree.IElementType;
 import static com.example.XMLElementTypes.*;
 
 
-public final class XMLLexer implements FlexLexer {
+public class XMLLexer implements FlexLexer {
 
   /** This character denotes the end of file */
   public static final int YYEOF = -1;
@@ -273,7 +273,7 @@ public final class XMLLexer implements FlexLexer {
 
   /** Number of characters from the last newline up to the start of the matched text. */
   @SuppressWarnings("unused")
-  protected int yycolumn;
+  private int yycolumn;
 
   /** Number of characters up to the start of the matched text. */
   @SuppressWarnings("unused")
@@ -316,11 +316,11 @@ public final class XMLLexer implements FlexLexer {
     return offset == input ? ZZ_CMAP_BLOCKS[offset] : ZZ_CMAP_BLOCKS[ZZ_CMAP_TOP[input >> 8] | offset];
   }
 
-  public final int getTokenStart() {
+  public int getTokenStart() {
     return zzStartRead;
   }
 
-  public final int getTokenEnd() {
+  public int getTokenEnd() {
     return getTokenStart() + yylength();
   }
 
@@ -348,7 +348,7 @@ public final class XMLLexer implements FlexLexer {
   /**
    * Returns the current lexical state.
    */
-  public final int yystate() {
+  public int yystate() {
     return zzLexicalState;
   }
 
@@ -358,7 +358,7 @@ public final class XMLLexer implements FlexLexer {
    *
    * @param newState the new lexical state
    */
-  public final void yybegin(int newState) {
+  public void yybegin(int newState) {
     zzLexicalState = newState;
   }
 
@@ -366,7 +366,7 @@ public final class XMLLexer implements FlexLexer {
   /**
    * Returns the text matched by the current regular expression.
    */
-  public final CharSequence yytext() {
+  public CharSequence yytext() {
     return zzBuffer.subSequence(zzStartRead, zzMarkedPos);
   }
 
@@ -382,7 +382,7 @@ public final class XMLLexer implements FlexLexer {
    *
    * @return the character at position pos
    */
-  public final char yycharat(int pos) {
+  public char yycharat(int pos) {
     return zzBuffer.charAt(zzStartRead+pos);
   }
 
@@ -390,7 +390,7 @@ public final class XMLLexer implements FlexLexer {
   /**
    * Returns the length of the matched text region.
    */
-  public final int yylength() {
+  public int yylength() {
     return zzMarkedPos-zzStartRead;
   }
 

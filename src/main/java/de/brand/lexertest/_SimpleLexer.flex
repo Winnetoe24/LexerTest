@@ -21,6 +21,7 @@ import static com.example.XMLElementTypes.*;
 %state ATTR_VALUE
 
 
+
 Whitespace      = [ \t\n\r\f]+
 NameStartChar   = [:_a-zA-Z]
 NameChar        = [:_a-zA-Z0-9.-]
@@ -57,6 +58,8 @@ Name            = {NameStartChar}{NameChar}*
     {Whitespace} { /* Skip whitespace */ }
     ">"          { yybegin(YYINITIAL); return TAG_CLOSE; }
     "/>"         { yybegin(YYINITIAL); return TAG_SELF_CLOSE; }
+    .|\n         {  /* Your default action. */ yybegin(YYINITIAL); }
+
 }
 
 
@@ -65,6 +68,7 @@ Name            = {NameStartChar}{NameChar}*
     {Whitespace} { /* Skip whitespace */ }
     {Name}       { return ELEMENT_NAME; }
     ">"          { yybegin(YYINITIAL); return TAG_CLOSE; }
+      .|\n         {  /* Your default action. */ yybegin(YYINITIAL); }
 }
 
 

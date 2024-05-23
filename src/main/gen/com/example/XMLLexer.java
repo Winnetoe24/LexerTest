@@ -41,7 +41,7 @@ public final class XMLLexer implements FlexLexer {
   private static final int [] ZZ_CMAP_TOP = zzUnpackcmap_top();
 
   private static final String ZZ_CMAP_TOP_PACKED_0 =
-    "\1\0\u10ff\u0100";
+    "\1\0\37\u0100\1\u0200\267\u0100\10\u0300\u1020\u0100";
 
   private static int [] zzUnpackcmap_top() {
     int [] result = new int[4352];
@@ -69,14 +69,14 @@ public final class XMLLexer implements FlexLexer {
   private static final int [] ZZ_CMAP_BLOCKS = zzUnpackcmap_blocks();
 
   private static final String ZZ_CMAP_BLOCKS_PACKED_0 =
-    "\11\0\2\1\1\0\2\1\22\0\1\1\1\2\1\3"+
-    "\3\0\1\4\6\0\1\5\1\6\1\7\12\6\1\10"+
-    "\1\0\1\11\1\12\1\13\1\14\1\0\32\10\4\0"+
-    "\1\10\1\0\13\10\1\15\1\16\12\10\1\17\2\10"+
-    "\u0185\0";
+    "\11\0\2\1\1\2\2\1\22\0\1\1\1\3\1\4"+
+    "\3\0\1\5\6\0\1\6\1\7\1\10\12\7\1\11"+
+    "\1\0\1\12\1\13\1\14\1\15\1\0\32\11\4\0"+
+    "\1\11\1\0\13\11\1\16\1\17\12\11\1\20\2\11"+
+    "\12\0\1\2\u01a2\0\2\2\326\0\u0100\2";
 
   private static int [] zzUnpackcmap_blocks() {
-    int [] result = new int[512];
+    int [] result = new int[1024];
     int offset = 0;
     offset = zzUnpackcmap_blocks(ZZ_CMAP_BLOCKS_PACKED_0, offset, result);
     return result;
@@ -100,13 +100,13 @@ public final class XMLLexer implements FlexLexer {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\6\0\1\1\1\2\1\3\1\1\1\4\1\5\1\2"+
-    "\1\0\1\6\1\7\1\10\1\11\1\12\1\13\1\14"+
-    "\1\0\1\15\1\0\1\16\1\0\1\17\2\0\1\20"+
-    "\1\21\1\0\1\22";
+    "\6\0\1\1\1\2\1\3\1\1\1\4\1\5\1\6"+
+    "\1\2\1\6\1\7\1\10\1\11\1\12\1\13\1\14"+
+    "\1\15\1\0\1\16\1\0\1\17\1\0\1\20\2\0"+
+    "\1\21\1\22\1\0\1\23";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[33];
+    int [] result = new int[34];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -131,14 +131,14 @@ public final class XMLLexer implements FlexLexer {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\20\0\40\0\60\0\100\0\120\0\140\0\160"+
-    "\0\200\0\220\0\240\0\260\0\300\0\320\0\340\0\360"+
-    "\0\360\0\u0100\0\360\0\u0110\0\360\0\u0120\0\360\0\u0130"+
-    "\0\140\0\u0140\0\360\0\u0150\0\u0160\0\360\0\360\0\u0170"+
-    "\0\360";
+    "\0\0\0\21\0\42\0\63\0\104\0\125\0\146\0\167"+
+    "\0\210\0\231\0\252\0\273\0\314\0\335\0\356\0\377"+
+    "\0\314\0\314\0\u0110\0\314\0\u0121\0\314\0\u0132\0\314"+
+    "\0\u0143\0\146\0\u0154\0\314\0\u0165\0\u0176\0\314\0\314"+
+    "\0\u0187\0\314";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[33];
+    int [] result = new int[34];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -161,23 +161,23 @@ public final class XMLLexer implements FlexLexer {
   private static final int [] ZZ_TRANS = zzUnpacktrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\1\7\1\10\2\7\1\0\4\7\1\11\2\7\1\12"+
-    "\3\7\5\13\1\14\12\13\1\0\1\15\5\0\1\16"+
-    "\1\17\2\0\1\20\1\0\3\17\1\0\1\15\1\0"+
-    "\1\21\3\0\1\16\1\22\1\0\1\23\1\20\1\0"+
-    "\3\22\1\0\1\15\6\0\1\22\2\0\1\20\1\0"+
-    "\3\22\3\24\1\25\14\24\4\7\1\0\4\7\1\0"+
-    "\7\7\1\10\2\7\1\0\4\7\1\0\6\7\2\0"+
-    "\1\26\4\0\1\27\4\0\1\30\3\0\4\7\1\0"+
-    "\4\7\1\0\1\7\1\31\4\7\5\13\1\0\12\13"+
-    "\5\0\1\32\13\0\1\15\31\0\1\33\11\0\2\17"+
-    "\1\0\1\17\4\0\3\17\25\0\2\22\1\0\1\22"+
-    "\4\0\3\22\3\24\1\0\14\24\5\0\1\34\31\0"+
-    "\1\35\13\0\1\36\11\0\1\37\30\0\1\40\16\0"+
-    "\1\41\2\0";
+    "\1\7\1\10\3\7\1\0\4\7\1\11\2\7\1\12"+
+    "\3\7\6\13\1\14\12\13\1\15\1\16\1\0\5\15"+
+    "\1\17\1\20\2\15\1\21\1\15\3\20\1\15\1\16"+
+    "\1\0\1\15\1\22\3\15\1\17\1\23\1\15\1\24"+
+    "\1\21\1\15\3\23\1\15\1\16\1\0\6\15\1\23"+
+    "\2\15\1\21\1\15\3\23\4\25\1\26\14\25\5\7"+
+    "\1\0\4\7\1\0\7\7\1\10\3\7\1\0\4\7"+
+    "\1\0\6\7\3\0\1\27\4\0\1\30\4\0\1\31"+
+    "\3\0\5\7\1\0\4\7\1\0\1\7\1\32\4\7"+
+    "\6\13\1\0\12\13\6\0\1\33\34\0\1\16\33\0"+
+    "\1\34\12\0\2\20\1\0\1\20\4\0\3\20\6\0"+
+    "\2\23\1\0\1\23\4\0\3\23\4\25\1\0\14\25"+
+    "\6\0\1\35\32\0\1\36\14\0\1\37\12\0\1\40"+
+    "\31\0\1\41\17\0\1\42\2\0";
 
   private static int [] zzUnpacktrans() {
-    int [] result = new int[384];
+    int [] result = new int[408];
     int offset = 0;
     offset = zzUnpacktrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -215,12 +215,12 @@ public final class XMLLexer implements FlexLexer {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\6\0\7\1\1\0\1\1\2\11\1\1\1\11\1\1"+
+    "\6\0\6\1\1\11\3\1\2\11\1\1\1\11\1\1"+
     "\1\11\1\0\1\11\1\0\1\1\1\0\1\11\2\0"+
     "\2\11\1\0\1\11";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[33];
+    int [] result = new int[34];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -535,92 +535,97 @@ public final class XMLLexer implements FlexLexer {
             { return ENCLOSED_TEXT_TOKEN;
             }
           // fall through
-          case 19: break;
+          case 20: break;
           case 2:
             { /* Skip whitespace */
             }
           // fall through
-          case 20: break;
+          case 21: break;
           case 3:
             { yybegin(BEGINN_START_TAG); return TAG_OPEN;
             }
           // fall through
-          case 21: break;
+          case 22: break;
           case 4:
             { /* Ignore comment content */
             }
           // fall through
-          case 22: break;
+          case 23: break;
           case 5:
             { /* Ignore single '-' */
             }
           // fall through
-          case 23: break;
-          case 6:
-            { yybegin(START_TAG); return ELEMENT_NAME;
-            }
-          // fall through
           case 24: break;
-          case 7:
-            { yybegin(YYINITIAL); return TAG_CLOSE;
+          case 6:
+            { /* Your default action. */ yybegin(YYINITIAL);
             }
           // fall through
           case 25: break;
-          case 8:
-            { yybegin(ATTR_VALUE); return DOUBLE_QUOTE;
+          case 7:
+            { yybegin(START_TAG); return ELEMENT_NAME;
             }
           // fall through
           case 26: break;
-          case 9:
-            { return ELEMENT_NAME;
+          case 8:
+            { yybegin(YYINITIAL); return TAG_CLOSE;
             }
           // fall through
           case 27: break;
-          case 10:
-            { return EQUALS;
+          case 9:
+            { yybegin(ATTR_VALUE); return DOUBLE_QUOTE;
             }
           // fall through
           case 28: break;
-          case 11:
-            { return ATTRIBUTE_VALUE;
+          case 10:
+            { return ELEMENT_NAME;
             }
           // fall through
           case 29: break;
-          case 12:
-            { yybegin(START_TAG); return DOUBLE_QUOTE;
+          case 11:
+            { return EQUALS;
             }
           // fall through
           case 30: break;
-          case 13:
-            { yybegin(END_TAG); return TAG_OPEN_CLOSE;
+          case 12:
+            { return ATTRIBUTE_VALUE;
             }
           // fall through
           case 31: break;
-          case 14:
-            { return XML_DECL_END;
+          case 13:
+            { yybegin(START_TAG); return DOUBLE_QUOTE;
             }
           // fall through
           case 32: break;
-          case 15:
-            { yybegin(YYINITIAL); return TAG_SELF_CLOSE;
+          case 14:
+            { yybegin(END_TAG); return TAG_OPEN_CLOSE;
             }
           // fall through
           case 33: break;
-          case 16:
-            { yybegin(YYINITIAL); return COMMENT_END;
+          case 15:
+            { return XML_DECL_END;
             }
           // fall through
           case 34: break;
-          case 17:
-            { yybegin(COMMENT); return COMMENT_START;
+          case 16:
+            { yybegin(YYINITIAL); return TAG_SELF_CLOSE;
             }
           // fall through
           case 35: break;
-          case 18:
-            { return XML_DECL_START;
+          case 17:
+            { yybegin(YYINITIAL); return COMMENT_END;
             }
           // fall through
           case 36: break;
+          case 18:
+            { yybegin(COMMENT); return COMMENT_START;
+            }
+          // fall through
+          case 37: break;
+          case 19:
+            { return XML_DECL_START;
+            }
+          // fall through
+          case 38: break;
           default:
             zzScanError(ZZ_NO_MATCH);
           }
