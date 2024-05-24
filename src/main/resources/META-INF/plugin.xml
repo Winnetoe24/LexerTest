@@ -37,5 +37,10 @@
             <lang.syntaxHighlighterFactory
                     language="Simple"
                     implementationClass="de.brand.lexertest.SimpleSyntaxHighlighterFactory"/>
+            <annotator
+                    language="Simple"
+                    implementationClass="de.brand.lexertest.SimpleAnnotator"/>
+            <localInspection language="Simple" implementationClass="de.brand.lexertest.UniqueIdInspection"
+                             displayName="UniquID" groupName="Simple" enabledByDefault="true"/>
         </extensions>
 </idea-plugin>
