@@ -16,15 +16,17 @@ final class SimpleCompletionContributor extends CompletionContributor {
           public void addCompletions(@NotNull CompletionParameters parameters,
                                      @NotNull ProcessingContext context,
                                      @NotNull CompletionResultSet resultSet) {
-            resultSet.addElement(LookupElementBuilder.create("package"));
+
+            resultSet.addElement(LookupElementBuilder.create("subpackage"));
           }
         }
     );
-    extend(CompletionType.SMART, PlatformPatterns.psiElement(XMLElementTypes.ELEMENT_NAME),
+    extend(CompletionType.BASIC, PlatformPatterns.psiElement(XMLElementTypes.ELEMENT_NAME),
         new CompletionProvider<>() {
           public void addCompletions(@NotNull CompletionParameters parameters,
                                      @NotNull ProcessingContext context,
                                      @NotNull CompletionResultSet resultSet) {
+              if (parameters.getPosition().getParent() instanceof XMLElementTypes.ELEMENT) {}
             resultSet.addElement(LookupElementBuilder.create("id=\""));
           }
         }

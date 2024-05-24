@@ -1,0 +1,11 @@
+
+d
+java:S6201"NReplace this instanceof check and cast with 'instanceof XMLElement xmlelement'(π΄Β«
+…
+java:S6201"jReplace this instanceof check and cast with 'instanceof XMLElementSelfCloseToken xmlelementselfclosetoken'(ΘÒÒηÿÿÿÿÿ
+h
+java:S37764"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(‘Ω±Ι
+f	java:S128d"LEnd this switch case with an unconditional break, return or throw statement.(ªθμ­ÿÿÿÿÿ
+7	java:S131c""Add a default case to this switch.(°Σχ
+a
+java:S1301c"KReplace this "switch" statement by "if" statements to increase readability.(°Σχ

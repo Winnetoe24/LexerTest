@@ -41,7 +41,7 @@ public class SimpleSyntaxHighlighter extends SyntaxHighlighterBase {
 
     @Override
     public TextAttributesKey @NotNull [] getTokenHighlights(IElementType tokenType) {
-        System.out.println(tokenType);
+//        System.out.println(tokenType);
         if (tokenType.equals(XMLElementTypes.ELEMENT_NAME)) {
             return ELEMENT_NAME_KEYS;
         }
