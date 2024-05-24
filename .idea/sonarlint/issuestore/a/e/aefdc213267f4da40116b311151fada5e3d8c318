@@ -22,3 +22,6 @@ java:S1172""(Remove this unused method parameter "t".(°Á¬ÕüÿÿÿÿJ$9b10478c-149e
 ‘	java:S100ı"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(é€ÄÒ8¹Úø1J$4816f23b-5c86-4e94-bbe0-576f3928764f
 ‘	java:S100‹"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(úÔŸº8ÒÚÂ×ø1J$3ae2b629-0ba6-4134-80f1-9eecd77f88cd
 ‘	java:S100—"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤Ÿšï8ÔÚÂ×ø1J$f0d758b4-60ca-4519-91b9-d036f0afe5c7
+]
+java:S1128
+";Remove this unused import 'com.intellij.psi.tree.TokenSet'.(Ïš§ÿÿÿÿÿ8¤î€¨ú1
