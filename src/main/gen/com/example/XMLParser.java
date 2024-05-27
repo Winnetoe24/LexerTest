@@ -49,7 +49,7 @@ public class XMLParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // attribute+
+  // (WHITESPACE attribute)+
   //                  | /* empty */
   public static boolean attribute_list(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "attribute_list")) return false;
@@ -61,17 +61,28 @@ public class XMLParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // attribute+
+  // (WHITESPACE attribute)+
   private static boolean attribute_list_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "attribute_list_0")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = attribute(b, l + 1);
+    r = attribute_list_0_0(b, l + 1);
     while (r) {
       int c = current_position_(b);
-      if (!attribute(b, l + 1)) break;
+      if (!attribute_list_0_0(b, l + 1)) break;
       if (!empty_element_parsed_guard_(b, "attribute_list_0", c)) break;
     }
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
+  // WHITESPACE attribute
+  private static boolean attribute_list_0_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "attribute_list_0_0")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, WHITESPACE);
+    r = r && attribute(b, l + 1);
     exit_section_(b, m, null, r);
     return r;
   }
@@ -126,7 +137,7 @@ public class XMLParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // element_start_token element_content? element_end_token
+  // element_start_token WHITESPACE? element_content? WHITESPACE? element_end_token
   //           | element_self_close_token
   public static boolean element(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "element")) return false;
@@ -139,27 +150,43 @@ public class XMLParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // element_start_token element_content? element_end_token
+  // element_start_token WHITESPACE? element_content? WHITESPACE? element_end_token
   private static boolean element_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "element_0")) return false;
     boolean r;
     Marker m = enter_section_(b);
     r = element_start_token(b, l + 1);
     r = r && element_0_1(b, l + 1);
+    r = r && element_0_2(b, l + 1);
+    r = r && element_0_3(b, l + 1);
     r = r && element_end_token(b, l + 1);
     exit_section_(b, m, null, r);
     return r;
   }
 
-  // element_content?
+  // WHITESPACE?
   private static boolean element_0_1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "element_0_1")) return false;
+    consumeToken(b, WHITESPACE);
+    return true;
+  }
+
+  // element_content?
+  private static boolean element_0_2(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "element_0_2")) return false;
     element_content(b, l + 1);
     return true;
   }
 
+  // WHITESPACE?
+  private static boolean element_0_3(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "element_0_3")) return false;
+    consumeToken(b, WHITESPACE);
+    return true;
+  }
+
   /* ********************************************************** */
-  // element_list+
+  // (WHITESPACE? element_list)+
   //                   | ENCLOSED_TEXT_TOKEN
   //                   | /* empty */
   public static boolean element_content(PsiBuilder b, int l) {
@@ -173,19 +200,37 @@ public class XMLParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // element_list+
+  // (WHITESPACE? element_list)+
   private static boolean element_content_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "element_content_0")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = element_list(b, l + 1);
+    r = element_content_0_0(b, l + 1);
     while (r) {
       int c = current_position_(b);
-      if (!element_list(b, l + 1)) break;
+      if (!element_content_0_0(b, l + 1)) break;
       if (!empty_element_parsed_guard_(b, "element_content_0", c)) break;
     }
     exit_section_(b, m, null, r);
     return r;
+  }
+
+  // WHITESPACE? element_list
+  private static boolean element_content_0_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "element_content_0_0")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = element_content_0_0_0(b, l + 1);
+    r = r && element_list(b, l + 1);
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
+  // WHITESPACE?
+  private static boolean element_content_0_0_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "element_content_0_0_0")) return false;
+    consumeToken(b, WHITESPACE);
+    return true;
   }
 
   /* ********************************************************** */
@@ -263,14 +308,15 @@ public class XMLParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // declaration_opt? element
+  // declaration_opt? WHITESPACE? element WHITESPACE?
   public static boolean xml_document(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "xml_document")) return false;
-    if (!nextTokenIs(b, "<xml document>", TAG_OPEN, XML_DECL_START)) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, XML_DOCUMENT, "<xml document>");
     r = xml_document_0(b, l + 1);
+    r = r && xml_document_1(b, l + 1);
     r = r && element(b, l + 1);
+    r = r && xml_document_3(b, l + 1);
     exit_section_(b, l, m, r, false, null);
     return r;
   }
@@ -279,6 +325,20 @@ public class XMLParser implements PsiParser, LightPsiParser {
   private static boolean xml_document_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "xml_document_0")) return false;
     declaration_opt(b, l + 1);
+    return true;
+  }
+
+  // WHITESPACE?
+  private static boolean xml_document_1(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "xml_document_1")) return false;
+    consumeToken(b, WHITESPACE);
+    return true;
+  }
+
+  // WHITESPACE?
+  private static boolean xml_document_3(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "xml_document_3")) return false;
+    consumeToken(b, WHITESPACE);
     return true;
   }
 

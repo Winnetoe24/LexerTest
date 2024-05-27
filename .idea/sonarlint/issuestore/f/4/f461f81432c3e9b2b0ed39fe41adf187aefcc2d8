@@ -1,53 +1,53 @@
 
-ˆ	java:S112¥"FDefine and throw a dedicated exception instead of using a generic one.(ãŞİ8¶ñ­¨ú1J$fd72f684-fa5d-4685-814e-b93ff95d6c80
-¡	java:S135à"YReduce the total number of break and continue statements in this loop to use at most one.(˜ïˆÿÿÿÿÿ8¼ñ­¨ú1J$d5a3173e-a6d1-4494-a35f-d32e625001aa
+ˆ	java:S112¦"FDefine and throw a dedicated exception instead of using a generic one.(ãŞİ8”Äÿú1J$c9b17794-d275-4700-bb76-04f174a467d7
+¡	java:S135á"YReduce the total number of break and continue statements in this loop to use at most one.(˜ïˆÿÿÿÿÿ8†”Äÿú1J$cfe5b74f-4af6-4bef-88b6-ba124d1d3632
 v
-java:S1199"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8Âñ­¨ú1J$769adc02-c477-4546-9773-4ef71cde459f
+java:S1199‘"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8‹”Äÿú1J$69e85c2a-a162-480e-910e-24efc8df89d9
 ¨
-java:S4144U"`Update this method so that its implementation is not identical to "zzUnpackcmap_top" on line 53.(‚…ëåøÿÿÿÿ8Œõ­¨ú1J$d01ce99a-2252-4b22-9025-4e8e50773123
+java:S4144V"`Update this method so that its implementation is not identical to "zzUnpackcmap_top" on line 54.(‚…ëåøÿÿÿÿ8Û™Æÿú1J$2e54fc86-6722-4c5d-b826-d472582759c1
 £
-java:S4144s"`Update this method so that its implementation is not identical to "zzUnpackcmap_top" on line 53.(âÃ¼ 8Œõ­¨ú1J$578121d8-f011-445b-ae21-da0a747288fd
+java:S4144t"`Update this method so that its implementation is not identical to "zzUnpackcmap_top" on line 54.(âÃ¼ 8Û™Æÿú1J$fff54ec8-d631-4177-a9de-08c6c4d64099
 £
-java:S4144å"`Update this method so that its implementation is not identical to "zzUnpackcmap_top" on line 53.(ª’¼)8Œõ­¨ú1J$7dfa53ba-287d-4a13-a832-bf6bc409f64a
+java:S4144æ"`Update this method so that its implementation is not identical to "zzUnpackcmap_top" on line 54.(ª’¼)8Ê”Äÿú1J$f8e9849c-498b-4b88-b3c6-032941b9ba52
 š
-java:S1450õ"VRemove the "zzState" field and declare it as a local variable in the relevant methods.(±çïì8‘õ­¨ú1J$109b5cfd-88e5-48c6-b01f-ad11fbb5a919
+java:S1450ö"VRemove the "zzState" field and declare it as a local variable in the relevant methods.(±çïì8Ğ”Äÿú1J$398ad622-0f35-4a76-9571-aa4e8004f958
 m
-java:S1197""*Move the array designators [] to the type.(¹ğÁ8õ­¨ú1J$b010b8dc-6824-4e7b-a9eb-e1240c364c6d
-	java:S100."NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°Ç‹«8 õ­¨ú1J$150716ec-dcb7-4547-934e-fc5d92ea3528
+java:S1197#"*Move the array designators [] to the type.(¹ğÁ8Ù”Äÿú1J$974551d5-f365-4925-b810-13afbbfb01c9
+	java:S100/"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°Ç‹«8ì™Æÿú1J$2e354d69-2cf2-4f91-b4ab-e2908ef40836
 ‚
-java:S18541":Remove this useless assignment to local variable "offset".(¨‚“Äÿÿÿÿÿ8¢õ­¨ú1J$e3c44edd-1928-499a-a4d7-768b09882204
-	java:S1005"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íë£Ï8£õ­¨ú1J$1d6c5378-c746-4eb4-9160-4476bfbdfe8d
-	java:S100N"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÍÆ·‡8©õ­¨ú1J$99029e94-db8d-4a99-914b-c7f36769c7be
+java:S18542":Remove this useless assignment to local variable "offset".(¨‚“Äÿÿÿÿÿ8î™Æÿú1J$78bc3588-bb55-4724-9c9d-3aa5111829c1
+	java:S1006"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íë£Ï8ï™Æÿú1J$9f898309-c6a0-4d8e-8a49-71a7980060db
+	java:S100O"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÍÆ·‡8ò™Æÿú1J$b88a8c8a-551e-4435-9664-17425f0a16db
 ‚
-java:S1854Q":Remove this useless assignment to local variable "offset".(åáÜÔúÿÿÿÿ8¸õ­¨ú1J$0d33d657-e482-405b-aef1-85a3d2a6f01e
-•	java:S100U"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚…ëåøÿÿÿÿ8¹õ­¨ú1J$21e3c6ad-8bed-45a9-b932-8147dc355fdc
+java:S1854R":Remove this useless assignment to local variable "offset".(åáÜÔúÿÿÿÿ8ò™Æÿú1J$1af6ff5b-8b4e-4374-95c3-36cf6bc6d663
+•	java:S100V"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚…ëåøÿÿÿÿ8ó™Æÿú1J$6b4e4cc3-0c43-4827-947f-1290ca447dba
 }
-java:S1854o":Remove this useless assignment to local variable "offset".(˜òÃ™8ºõ­¨ú1J$d7778bf9-6cdb-4fb2-b37c-dc7857c5720d
+java:S1854p":Remove this useless assignment to local variable "offset".(˜òÃ™8õ™Æÿú1J$61035f51-459e-4907-8f04-ef8939c50a77
 ~
-java:S1854":Remove this useless assignment to local variable "offset".(¡÷Ã¨8¾õ­¨ú1J$dd0bc4cb-d476-40ab-87c5-1937283b11f9
+java:S1854":Remove this useless assignment to local variable "offset".(¡÷Ã¨8ù™Æÿú1J$2a275b04-054b-4f4a-8c07-818a8df1ae0b
 ƒ
-java:S1854¶":Remove this useless assignment to local variable "offset".(Ì¸“Åúÿÿÿÿ8Àõ­¨ú1J$97dae6f8-119e-428c-9c80-96db0d08b4ce
+java:S1854·":Remove this useless assignment to local variable "offset".(Ì¸“Åúÿÿÿÿ8í”Äÿú1J$b6077735-ccd8-4634-9aed-aa30e0e13c3c
 ƒ
-java:S1854á":Remove this useless assignment to local variable "offset".(¡í¶ùÿÿÿÿ8Âõ­¨ú1J$d4fbd378-5836-486d-b9c7-9ff094cc43ee
+java:S1854â":Remove this useless assignment to local variable "offset".(¡í¶ùÿÿÿÿ8ğ”Äÿú1J$ae3a00c1-ea63-4a13-8640-56e17b1f5079
 }
-java:S3400´"9Remove this method and declare a constant for this value.(§¼Éç8Æõ­¨ú1J$d8f81b11-ad09-4d4d-86ff-7bce17364181
+java:S3400µ"9Remove this method and declare a constant for this value.(§¼Éç8ù”Äÿú1J$64b8b283-8892-4334-a3d1-942a2273d3b5
 }
-java:S3400Ø"9Remove this method and declare a constant for this value.(§¼Éç8Éõ­¨ú1J$c88dc0d4-1308-4aa9-8799-4cf7221e80f0
+java:S3400Ù"9Remove this method and declare a constant for this value.(§¼Éç8ü”Äÿú1J$b2a58e1d-2137-4f8f-88a4-dbfb399a8d86
 °
-java:S1130×"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(Òß‘à8Êõ­¨ú1J$b21efa3b-6891-49d0-a5f7-c31a6a688a9d
+java:S1130Ø"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(Òß‘à8ş”Äÿú1J$1507afb7-26a3-4593-a886-d441c5a20f19
 –
-java:S3776À"RRefactor this method to reduce its Cognitive Complexity from 40 to the 15 allowed.(‡ÆÇ€8Ñõ­¨ú1J$2e282aeb-c80c-4bd4-a93f-3657a7e25a5e
+java:S3776Á"RRefactor this method to reduce its Cognitive Complexity from 40 to the 15 allowed.(‡ÆÇ€8‡•Äÿú1J$10ef9906-fa50-4ff7-8c52-2f507149f932
 
-java:S1119ß";Refactor the code to remove this label and the need for it.(şİôŠ8Ôõ­¨ú1J$ea38137b-15da-4bd7-b60f-a64130d9c854
+java:S1119à";Refactor the code to remove this label and the need for it.(şİôŠ8‹•Äÿú1J$e75c324e-1ceb-458e-8cf1-657aff353ee6
 †
-java:S1479•"BReduce the number of non-empty switch cases from 39 to at most 30.(ÿáöô8Úõ­¨ú1J$b0ecb32a-9707-47f8-ac67-1a4414f748ab
+java:S1479–"BReduce the number of non-empty switch cases from 39 to at most 30.(ÿáöô8‘•Äÿú1J$02f6cd93-fca2-4d37-b1fc-47bf2544a129
 t
-java:S1068"1Remove this unused "ZZ_BUFFERSIZE" private field.(·²¿’8Şõ­¨ú1J$9afdb3d8-390b-47d9-983a-79b11a1a4d7a
+java:S1068"1Remove this unused "ZZ_BUFFERSIZE" private field.(·²¿’8–•Äÿú1J$6c0ad255-505c-4a7f-853e-8bebb76a91a2
 u
-java:S1068ò",Remove this unused "zzReader" private field.(ı©¤ªúÿÿÿÿ8àõ­¨ú1J$eecaefb9-edc6-434b-bc2d-219b5bb62e4c
+java:S1068ó",Remove this unused "zzReader" private field.(ı©¤ªúÿÿÿÿ8–•Äÿú1J$a47497c0-cb9b-4e75-b361-a58f01a2a281
 w
-java:S1144®"3Remove this unused private "zzMaxBufferLen" method.(™Ú‡8àõ­¨ú1J$1dc8f6e1-d460-4706-8747-182be2e9d735
+java:S1144¯"3Remove this unused private "zzMaxBufferLen" method.(™Ú‡8˜•Äÿú1J$549831e1-85f4-48d9-a382-e045b3675f7c
 w
-java:S1144³".Remove this unused private "zzCanGrow" method.(¶ØÏÔûÿÿÿÿ8áõ­¨ú1J$cca4557b-5266-4455-a07c-fe8422abc069
+java:S1144´".Remove this unused private "zzCanGrow" method.(¶ØÏÔûÿÿÿÿ8™•Äÿú1J$8cb6ee42-f017-4896-98af-b88ff2794d74
 ‹
-java:S6541À"ÆA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 148 to 64, Complexity from 51 to 14, Nesting Level from 4 to 2, Number of Variables from 12 to 6.(‡ÆÇ€8ãõ­¨ú1J$2014050d-8501-478a-a42d-d3698cf58505
+java:S6541Á"ÆA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 148 to 64, Complexity from 51 to 14, Nesting Level from 4 to 2, Number of Variables from 12 to 6.(‡ÆÇ€8›•Äÿú1J$df0e6eb2-7856-473c-bee7-f4a971cac123

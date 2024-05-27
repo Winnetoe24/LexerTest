@@ -1,8 +1,8 @@
 /* XMLLexer.flex */
 package com.example;
 
-import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.tree.IElementType;
+
 import static com.example.XMLElementTypes.*;
 
 %%
@@ -30,7 +30,7 @@ Name            = {NameStartChar}{NameChar}*
 %%
 
 <YYINITIAL> {
-    {Whitespace} { /* Skip whitespace */ }
+    {Whitespace} { return WHITESPACE; }
 
     "<?xml"      { return XML_DECL_START; }
     "?>"         { return XML_DECL_END; }
@@ -43,32 +43,32 @@ Name            = {NameStartChar}{NameChar}*
 }
 
 <BEGINN_START_TAG> {
-    {Whitespace} { /* Skip whitespace */ }
+    {Whitespace} { return WHITESPACE; }
     {Name}       { yybegin(START_TAG); return ELEMENT_NAME; }
 }
 
 <START_TAG> {
-    {Whitespace} { /* Skip whitespace */ }
+    {Whitespace} { return WHITESPACE; }
     {Name}       { return ELEMENT_NAME; }
     "="          { return EQUALS; }
     "\""         { yybegin(ATTR_VALUE); return DOUBLE_QUOTE; }
 }
 
 <BEGINN_START_TAG, START_TAG> {
-    {Whitespace} { /* Skip whitespace */ }
+    {Whitespace} { return WHITESPACE; }
     ">"          { yybegin(YYINITIAL); return TAG_CLOSE; }
     "/>"         { yybegin(YYINITIAL); return TAG_SELF_CLOSE; }
-    .|\n         {  /* Your default action. */ yybegin(YYINITIAL); }
+    [^]         {  /* Your default action. */ yybegin(YYINITIAL); }
 
 }
 
 
 
 <END_TAG> {
-    {Whitespace} { /* Skip whitespace */ }
+    {Whitespace} { return WHITESPACE; }
     {Name}       { return ELEMENT_NAME; }
     ">"          { yybegin(YYINITIAL); return TAG_CLOSE; }
-      .|\n         {  /* Your default action. */ yybegin(YYINITIAL); }
+    [^]          {  /* Your default action. */ yybegin(YYINITIAL); }
 }
 
 

@@ -1,7 +1,7 @@
 
-d
-java:S6201"NReplace this instanceof check and cast with 'instanceof XMLVisitor xmlvisitor'(™¥³Á
-F
-java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ
-Y
-java:S1128	">Remove this unused import 'com.intellij.psi.util.PsiTreeUtil'.(–¢Û¶þÿÿÿÿ
+Š
+java:S6201"NReplace this instanceof check and cast with 'instanceof XMLVisitor xmlvisitor'(™¥³ÁJ$8fcb6257-7351-4cce-a47e-8d9651b45945
+l
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±ÄøÿÿÿÿJ$af6bbae0-60bb-4e27-91a1-759545e7d196
+
+java:S1128	">Remove this unused import 'com.intellij.psi.util.PsiTreeUtil'.(–¢Û¶þÿÿÿÿJ$2e7c4639-e809-438a-8d3f-06597ef7c655

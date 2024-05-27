@@ -37,6 +37,7 @@ public interface XMLElementTypes {
   IElementType TAG_OPEN = new XMLTokenType("<");
   IElementType TAG_OPEN_CLOSE = new XMLTokenType("</");
   IElementType TAG_SELF_CLOSE = new XMLTokenType("/>");
+  IElementType WHITESPACE = new XMLTokenType("WHITESPACE");
   IElementType XML_DECL_END = new XMLTokenType("?>");
   IElementType XML_DECL_START = new XMLTokenType("<?xml");
 

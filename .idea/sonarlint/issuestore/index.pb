@@ -11,3 +11,17 @@ e
 5src/main/java/de/brand/lexertest/SimpleAnnotator.java,6\b\6be8ae982e53a88b3e70e4c0d73f76aa373b4d1f
 q
 Asrc/main/java/de/brand/lexertest/SimpleCompletionContributor.java,3\e\3e15a19d2a5249dce21ab694119ab4d971745729
+]
+-src/main/gen/com/example/XMLElementTypes.java,7\e\7e81dc7ce5b2f6934eda03dfb5c2b3e8da56c351
+[
++src/main/java/de/brand/lexertest/simple.bnf,a\b\abea363c74dd72611c48487a2b899da5a544e85e
+W
+'src/main/gen/com/example/XMLParser.java,a\e\aefdc213267f4da40116b311151fada5e3d8c318
+k
+;src/main/gen/generated/psi/impl/XMLElementEndTokenImpl.java,d\8\d87f1581f800fb845fa707c579c1b91cc00904d1
+g
+7src/main/gen/generated/psi/impl/XMLElementListImpl.java,d\c\dccf6072ac9864770e64ca2502774667614205fc
+c
+3src/main/gen/generated/psi/impl/XMLCommentImpl.java,1\8\1821a15c7e335c2048517b7d4544866d5adecc32
+c
+3src/main/gen/generated/psi/impl/XMLElementImpl.java,8\6\86a7643220ad888712ca12c7f2c534d13d9d10d4
